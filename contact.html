@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Wild Card Tennis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                <img src="logo.png" alt="Logo">
+                <span style="color: var(--vibrant-yellow);">WILD CARD</span>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="planner.html">Planner</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="nav-active">Contact</a></li>
+            </ul>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <span class="member-badge"></span>
+            <a href="auth.html" class="login-trigger" style="color: var(--white); text-decoration: none; font-size: 0.8rem; font-weight: 700;">Login</a>
+            <a href="#" id="logout-link">Logout</a>
+        </div>
+    </header>
+
+    <div class="sub-hero">
+        <h1>Connect With Us</h1>
+        <p>Ready to hit the court? We're here to help.</p>
+    </div>
+
+    <div class="page-wrapper">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;">
+            <div>
+                <h2 style="font-size: 2.5rem; color: var(--primary-green); margin-bottom: 2rem;">Get in Touch</h2>
+                <div style="margin-bottom: 2rem;">
+                    <p style="font-weight: 800; color: var(--secondary-green);">OFFICE</p>
+                    <p>Nairobi Club,<br>Nairobi, Kenya</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <p style="font-weight: 800; color: var(--secondary-green);">EMAIL</p>
+                    <p>rogoij@gmail.com</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <p style="font-weight: 800; color: var(--secondary-green);">PHONE</p>
+                    <p>+254 722 102 870</p>
+                </div>
+            </div>
+            <div>
+                <form class="planner-form"
+                    style="background: var(--white); padding: 2rem; border-radius: 15px; border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                    <input type="text" placeholder="Your Name" required
+                        style="color: #333; border: 1px solid #ddd; background: #fff;">
+                    <input type="email" placeholder="Your Email" required
+                        style="color: #333; border: 1px solid #ddd; background: #fff;">
+                    <textarea placeholder="Your Message" rows="5" required
+                        style="color: #333; border: 1px solid #ddd; background: #fff;"></textarea>
+                    <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Wild Card Tennis. Elite Event Systems.</p>
+    </footer>
+
+    <script type="module" src="auth.js"></script>
+</body>
+
+</html>

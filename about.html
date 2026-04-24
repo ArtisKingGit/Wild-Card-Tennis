@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Wild Card Tennis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                <img src="logo.png" alt="Logo">
+                <span style="color: var(--vibrant-yellow);">WILD CARD</span>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="planner.html">Planner</a></li>
+                <li><a href="about.html" class="nav-active">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <span class="member-badge"></span>
+            <a href="auth.html" class="login-trigger" style="color: var(--white); text-decoration: none; font-size: 0.8rem; font-weight: 700;">Login</a>
+            <a href="#" id="logout-link">Logout</a>
+        </div>
+    </header>
+
+    <div class="sub-hero">
+        <h1>The Wild Card Standard</h1>
+        <p>Expertise, Passion, and Precision on Every Court.</p>
+    </div>
+
+    <div class="page-wrapper">
+        <div style="max-width: 800px; margin: 0 auto; line-height: 1.8;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: var(--primary-green);">Our Mission</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem;">At Wild Card Tennis, we believe that world-class tennis events should be accessible to all who share the passion. Founded by tennis enthusiasts and event logistics experts, we bridge the gap between amateur play and professional organization.</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 4rem;">
+                <div>
+                    <h3 style="color: var(--secondary-green); margin-bottom: 1rem;">Why "Wild Card"?</h3>
+                    <p>In tennis, a Wild Card is an opportunity—a chance to prove yourself regardless of ranking. We aim to be that opportunity for every organizer, coach, and player who wants to elevate their game.</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--secondary-green); margin-bottom: 1rem;">Our Excellence</h3>
+                    <p>From the tension of the strings to the precision of the lawn, we obsess over the details that define the professional experience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Wild Card Tennis. Elite Event Systems.</p>
+    </footer>
+
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

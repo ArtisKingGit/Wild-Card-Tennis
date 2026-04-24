@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Planner | Wild Card Tennis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .wizard-step select, .wizard-step input, .wizard-step textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-top: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+        label { font-weight: 600; font-size: 0.9rem; color: var(--primary-green); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                <img src="logo.png" alt="Logo">
+                <span style="color: var(--vibrant-yellow);">WILD CARD</span>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="planner.html" class="nav-active">Planner</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <span class="member-badge"></span>
+            <a href="auth.html" class="login-trigger" style="color: var(--white); text-decoration: none; font-size: 0.8rem; font-weight: 700;">Login</a>
+            <a href="#" id="logout-link">Logout</a>
+        </div>
+    </header>
+
+    <div class="sub-hero">
+        <h1>Event Planning System</h1>
+        <p>Design your perfect tennis experience in minutes.</p>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="wizard-box">
+            <div class="progress-bar">
+                <div class="step-node active" data-step="1">1</div>
+                <div class="step-node" data-step="2">2</div>
+                <div class="step-node" data-step="3">3</div>
+                <div class="step-node" data-step="4">4</div>
+            </div>
+
+            <form id="multi-step-planner">
+                <!-- STEP 1: BASICS -->
+                <div class="wizard-step active" id="step-1">
+                    <h2>Step 1: The Basics</h2>
+                    <p>Tell us what kind of event you're dreaming of.</p>
+                    <div class="form-grid">
+                        <div class="full-width">
+                            <label>Event Name</label>
+                            <input type="text" id="p-name" placeholder="E.g. Summer Corporate Open" required>
+                        </div>
+                        <div>
+                            <label>Event Type</label>
+                            <select id="p-type">
+                                <option value="Tournament">Tournament</option>
+                                <option value="Clinic">Coaching Clinic</option>
+                                <option value="Exhibition">Exhibition Match</option>
+                                <option value="Social">Social / Networking</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Estimated Players</label>
+                            <input type="number" id="p-players" placeholder="e.g. 16">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 2: RESOURCES -->
+                <div class="wizard-step" id="step-2">
+                    <h2>Step 2: Requirements</h2>
+                    <p>What resources will you need on the day?</p>
+                    <div class="form-grid">
+                        <div>
+                            <label>Number of Courts</label>
+                            <select id="p-courts">
+                                <option value="2">2 Courts</option>
+                                <option value="4">4 Courts</option>
+                                <option value="8">8+ Courts (Full Facility)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Coaching Staff</label>
+                            <select id="p-staff">
+                                <option value="none">None required</option>
+                                <option value="basic">Basic (2 Coaches)</option>
+                                <option value="elite">Elite (4+ Pro Coaches)</option>
+                            </select>
+                        </div>
+                        <div class="full-width">
+                            <label>Catering Requirements</label>
+                            <select id="p-catering">
+                                <option value="none">No catering</option>
+                                <option value="drinks">Hydration & Snacks</option>
+                                <option value="full">Full VIP Buffet & Lounge</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 3: LOGISTICS -->
+                <div class="wizard-step" id="step-3">
+                    <h2>Step 3: Logistics</h2>
+                    <p>When and where should the magic happen?</p>
+                    <div class="form-grid">
+                        <div class="full-width">
+                            <label>Preferred Date</label>
+                            <input type="date" id="p-date" required>
+                        </div>
+                        <div class="full-width">
+                            <label>Venue Preference</label>
+                            <select id="p-venue">
+                                <option value="Indoor">Indoor Hard Courts</option>
+                                <option value="Outdoor">Outdoor Clay Courts</option>
+                                <option value="Grass">Premium Grass Courts</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 4: REVIEW -->
+                <div class="wizard-step" id="step-4">
+                    <h2>Step 4: Final Review</h2>
+                    <p>Check your details before we calculate your proposal.</p>
+                    <div id="summary-area" style="background: #f4f4f4; padding: 2rem; border-radius: 10px; margin-top: 1.5rem;">
+                        <!-- JS populated -->
+                    </div>
+                    <div class="form-grid" style="margin-top: 2rem;">
+                        <div class="full-width">
+                            <label>Your Email Address</label>
+                            <input type="email" id="p-email" placeholder="tennis@example.com" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wizard-nav">
+                    <button type="button" id="prev-btn" class="cta-button" style="background: #eee; color: #333; display: none;">Back</button>
+                    <button type="button" id="next-btn" class="cta-button">Continue</button>
+                    <button type="submit" id="submit-btn" class="cta-button" style="display: none;">Send for Approval</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Wild Card Tennis. Elite Event Systems.</p>
+    </footer>
+
+    <script src="planner.js"></script>
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events | Wild Card Tennis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                <img src="logo.png" alt="Logo">
+                <span style="color: var(--vibrant-yellow);">WILD CARD</span>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html" class="nav-active">Events</a></li>
+                <li><a href="planner.html">Planner</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <span class="member-badge"></span>
+            <a href="auth.html" class="login-trigger" style="color: var(--white); text-decoration: none; font-size: 0.8rem; font-weight: 700;">Login</a>
+            <a href="#" id="logout-link">Logout</a>
+        </div>
+    </header>
+
+    <div class="sub-hero">
+        <h1>Tournaments & Clinics</h1>
+        <p>Join the elite circle of tennis competitors.</p>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All Events</button>
+            <button class="filter-btn" data-filter="Tournament">Tournaments</button>
+            <button class="filter-btn" data-filter="Clinic">Clinics</button>
+            <button class="filter-btn" data-filter="Social">Social</button>
+        </div>
+
+        <div class="events-grid" id="events-directory">
+            <!-- Rendered by JS -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Wild Card Tennis. Elite Event Systems.</p>
+    </footer>
+
+    <script>
+        const events = [
+            { title: 'Spring Open', date: 'May 10', type: 'Tournament', img: 'hero.png', dec: 'The season opener for regional pros.' },
+            { title: 'Service Clinic', date: 'May 15', type: 'Clinic', img: 'event-card.png', dec: 'Perfect your serve with Coach Marcus.' },
+            { title: 'Sunset Gala', date: 'June 01', type: 'Social', img: 'hero.png', dec: 'A night of tennis and networking.' },
+            { title: 'Junior Masters', date: 'June 10', type: 'Tournament', img: 'event-card.png', dec: 'Under 16 premier tournament.' },
+            { title: 'Footwork Drills', date: 'June 15', type: 'Clinic', img: 'hero.png', dec: 'Intensive footwork and agility training.' }
+        ];
+
+        const directory = document.getElementById('events-directory');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        const renderEvents = (filter = 'all') => {
+            directory.innerHTML = '';
+            const filtered = filter === 'all' ? events : events.filter(e => e.type === filter);
+            
+            filtered.forEach(e => {
+                directory.innerHTML += `
+                    <div class="event-card">
+                        <div class="event-img" style="background-image: url('${e.img}');"></div>
+                        <div class="event-content">
+                            <span class="event-tag">${e.type}</span>
+                            <h3>${e.title}</h3>
+                            <p>${e.dec}</p>
+                            <div style="margin-top: 1rem; font-weight: 600; color: var(--secondary-green);">${e.date}, 2026</div>
+                            <a href="#" class="cta-button" style="display: block; margin-top: 1.5rem; text-align: center; font-size: 0.8rem; padding: 0.8rem;">Register Now</a>
+                        </div>
+                    </div>
+                `;
+            });
+        };
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderEvents(btn.dataset.filter);
+            });
+        });
+
+        renderEvents();
+    </script>
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

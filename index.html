@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wild Card Tennis - Premium tennis events, planning, and professional training.">
+    <title>Wild Card Tennis | Elite Tennis Events & Planning</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Wild Card Tennis Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-active">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="planner.html">Planner</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="user-profile" id="user-profile">
+                <img src="" alt="Profile" class="profile-img" id="user-pic">
+                <div class="welcome-msg">
+                    <span>Welcome back,</span>
+                    <span id="user-name">Player</span>
+                </div>
+                <a href="#" id="logout-link">Logout</a>
+            </div>
+            
+            <a href="auth.html" class="login-button">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
+                Login
+            </a>
+            
+            <a href="planner.html" class="cta-button" style="padding: 0.6rem 1.2rem; font-size: 0.8rem;">Join Now</a>
+        </div>
+    </header>
+
+    <section id="home" class="hero"
+        style="background: linear-gradient(rgba(13, 43, 26, 0.7), rgba(13, 43, 26, 0.7)), url('banner.jpg'); background-size: cover; background-position: center;">
+        <div class="hero-content">
+            <p
+                style="color: var(--vibrant-yellow); font-weight: 800; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 1rem;">
+                Elite Performance. Premium Experience.</p>
+            <h1>Play the <span>Wild Card</span> Way.</h1>
+            <p>From international tournaments to private coaching, we plan every detail so you can focus on your winning
+                shot.</p>
+            <div style="display: flex; gap: 1.5rem; margin-top: 2rem;">
+                <a href="events.html" class="cta-button">View Events</a>
+                <a href="planner.html" class="cta-button"
+                    style="background: transparent; color: var(--white); border: 2px solid var(--vibrant-yellow);">Plan
+                    Event</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="events">
+        <div class="section-title">
+            <p>Don't miss the action</p>
+            <h2>Upcoming Tournaments</h2>
+        </div>
+        <div class="events-grid" id="events-list">
+            <div class="event-card">
+                <div class="event-img" style="background-image: url('event-card.png');"></div>
+                <div class="event-content">
+                    <span class="event-tag">Grand Slam Series</span>
+                    <h3>Wimbledon Warmup</h3>
+                    <p>Prepare for the grass season with our elite training camp.</p>
+                    <div style="margin-top: 1rem; font-weight: 600; color: var(--secondary-green);">May 15-20, 2026
+                    </div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-img" style="background-image: url('hero.png');"></div>
+                <div class="event-content">
+                    <span class="event-tag">Junior Circuit</span>
+                    <h3>Wild Card Junior Open</h3>
+                    <p>The premier tournament for rising stars under 18.</p>
+                    <div style="margin-top: 1rem; font-weight: 600; color: var(--secondary-green);">June 05, 2026</div>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-img" style="background-image: url('event-card.png');"></div>
+                <div class="event-content">
+                    <span class="event-tag">Social Event</span>
+                    <h3>Sunset Doubles Gala</h3>
+                    <p>Exhibition matches followed by a networking dinner.</p>
+                    <div style="margin-top: 1rem; font-weight: 600; color: var(--secondary-green);">June 12, 2026</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="planner" style="background: #f9f9f9;">
+        <div class="section-title">
+            <p>Your Vision, Our Execution</p>
+            <h2>Elite Event Planning</h2>
+        </div>
+        <div class="planner-container">
+            <div class="planner-info">
+                <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Host Your Own <br>Elite Tennis Event</h3>
+                <p style="opacity: 0.8; margin-bottom: 2rem;">Whether it's a corporate retreat, a charity tournament, or
+                    a private clinic, Wild Card Tennis handles everything from court bookings to hospitality.</p>
+                <a href="planner.html" class="cta-button">Open Planning System</a>
+            </div>
+            <div class="planner-preview" id="preview-image">
+                <div class="planner-preview-overlay" id="preview-text">
+                    <h4 style="font-weight: 800;">Strategy & Logistics</h4>
+                    <p id="dynamic-preview">Use our 4-step wizard to calculate your event requirements and receive a
+                        tactical proposal within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" style="display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 5%;">
+        <div>
+            <img src="banner.jpg" alt="Tennis Action"
+                style="width: 100%; border-radius: 20px; box-shadow: 20px 20px 0 var(--vibrant-yellow);">
+        </div>
+        <div>
+            <p style="color: var(--secondary-green); font-weight: 800; text-transform: uppercase;">The Wild Card Story
+            </p>
+            <h2 style="font-size: 3.5rem; color: var(--primary-green); margin-bottom: 2rem;">Redefining the Tennis
+                Experience.</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #555;">Wild Card Tennis was founded on the belief that
+                every player deserves a professional-grade environment. We provide world-class logistics for events that
+                inspire and unite the tennis community.</p>
+            <ul style="list-style: none; margin-top: 2rem;">
+                <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 20px; height: 20px; background: var(--vibrant-yellow); border-radius: 50%;">
+                    </div>
+                    <strong>Premium Court Management</strong>
+                </li>
+                <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 20px; height: 20px; background: var(--vibrant-yellow); border-radius: 50%;">
+                    </div>
+                    <strong>End-to-End Event Logistics</strong>
+                </li>
+                <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;">
+                    <div style="width: 20px; height: 20px; background: var(--vibrant-yellow); border-radius: 50%;">
+                    </div>
+                    <strong>Professional Coaching Network</strong>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo-container" style="justify-content: center; margin-bottom: 2rem;">
+            <img src="logo.png" alt="Logo">
+            <span style="color: var(--vibrant-yellow);">WILD CARD</span>
+        </div>
+        <p>&copy; 2026 Wild Card Tennis. All Rights Reserved. Stay in the Game.</p>
+        <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1.5rem;">
+            <a href="#" style="color: var(--white); text-decoration: none;">Instagram</a>
+            <a href="#" style="color: var(--white); text-decoration: none;">Twitter</a>
+            <a href="#" style="color: var(--white); text-decoration: none;">LinkedIn</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script type="module" src="auth.js"></script>
+</body>
+
+</html>
