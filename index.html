@@ -28,14 +28,15 @@
             </ul>
         </nav>
         <div style="display: flex; align-items: center; gap: 1rem;">
-            <div class="user-profile" id="user-profile">
-                <img src="" alt="Profile" class="profile-img" id="user-pic">
-                <div class="welcome-msg">
-                    <span>Welcome back,</span>
-                    <span id="user-name">Player</span>
+            <a href="account.html" style="text-decoration: none; color: inherit;">
+                <div class="user-profile" id="user-profile">
+                    <img src="" alt="Profile" class="profile-img" id="user-pic">
+                    <div class="welcome-msg">
+                        <span>Welcome back,</span>
+                        <span id="user-name">Player</span>
+                    </div>
                 </div>
-                <a href="#" id="logout-link">Logout</a>
-            </div>
+            </a>
             
             <a href="auth.html" class="login-button">
                 <svg viewBox="0 0 24 24">
@@ -44,6 +45,7 @@
                 Login
             </a>
             
+            <a href="#" id="logout-link" style="font-size: 0.7rem; color: var(--white); opacity: 0.7; text-decoration: none;">Logout</a>
             <a href="planner.html" class="cta-button" style="padding: 0.6rem 1.2rem; font-size: 0.8rem;">Join Now</a>
         </div>
     </header>
