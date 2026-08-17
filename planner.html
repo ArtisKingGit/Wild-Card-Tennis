@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Custom Tennis Event Planner & Tactical Cost Calculator - Design bespoke tournaments, clinics, and corporate experiences.">
     <title>Event Planner | Wild Card Tennis</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,10 +15,22 @@
             padding: 1rem;
             margin-top: 0.5rem;
             border: 1px solid #ddd;
-            border-radius: 8px;
+            border-radius: 12px;
             font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
         }
-        label { font-weight: 600; font-size: 0.9rem; color: var(--primary-green); }
+        .wizard-step select:focus, .wizard-step input:focus, .wizard-step textarea:focus {
+            border-color: var(--secondary-green);
+            outline: none;
+        }
+        label { 
+            font-weight: 700; 
+            font-size: 0.85rem; 
+            color: var(--primary-green); 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
     </style>
 </head>
 <body>
@@ -25,8 +38,8 @@
     <header>
         <div class="logo-container">
             <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
-                <img src="logo.png" alt="Logo">
-                <span style="color: var(--vibrant-yellow);">WILD CARD</span>
+                <img src="logo.png" alt="Wild Card Tennis Logo">
+                <span>WILD CARD</span>
             </a>
         </div>
         <nav>
@@ -37,16 +50,52 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-        <div style="display: flex; align-items: center; gap: 1rem;">
-            <span class="member-badge"></span>
-            <a href="auth.html" class="login-trigger" style="color: var(--white); text-decoration: none; font-size: 0.8rem; font-weight: 700;">Login</a>
+        </nav>
+        <div class="header-actions" style="display: flex; align-items: center; gap: 1rem;">
+            <a href="account.html" style="text-decoration: none; color: inherit;">
+                <div class="user-profile" id="user-profile">
+                    <img src="" alt="Profile" class="profile-img" id="user-pic">
+                    <div class="welcome-msg">
+                        <span>Locker Room</span>
+                        <span id="user-name">Player</span>
+                    </div>
+                </div>
+            </a>
+            <a href="auth.html" class="login-button">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
+                Login
+            </a>
             <a href="#" id="logout-link">Logout</a>
+            <button class="hamburger-btn" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer-overlay"></div>
+    <aside class="mobile-drawer">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo">
+            <span>WILD CARD</span>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="planner.html" class="nav-active">Planner</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="account.html">My Dashboard</a></li>
+        </ul>
+    </aside>
+
     <div class="sub-hero">
-        <h1>Event Planning System</h1>
-        <p>Design your perfect tennis experience in minutes.</p>
+        <h1>Strategic Event Planning System</h1>
+        <p>Design your custom tournament, private clinic, or corporate tennis experience in minutes.</p>
     </div>
 
     <div class="page-wrapper">
@@ -61,56 +110,64 @@
             <form id="multi-step-planner">
                 <!-- STEP 1: BASICS -->
                 <div class="wizard-step active" id="step-1">
-                    <h2>Step 1: The Basics</h2>
-                    <p>Tell us what kind of event you're dreaming of.</p>
+                    <h2>Step 1: Event Identity</h2>
+                    <p style="color: #666; margin-top: 0.3rem;">Define the core scope of your event.</p>
                     <div class="form-grid">
                         <div class="full-width">
-                            <label>Event Name</label>
-                            <input type="text" id="p-name" placeholder="E.g. Summer Corporate Open" required>
+                            <label for="p-name">Event Title / Organization</label>
+                            <input type="text" id="p-name" placeholder="E.g. Silicon Valley Corporate Invitational" required>
                         </div>
                         <div>
-                            <label>Event Type</label>
+                            <label for="p-type">Event Category</label>
                             <select id="p-type">
-                                <option value="Tournament">Tournament</option>
-                                <option value="Clinic">Coaching Clinic</option>
-                                <option value="Exhibition">Exhibition Match</option>
-                                <option value="Social">Social / Networking</option>
+                                <option value="Tournament">Tournament (Round Robin / Knockout)</option>
+                                <option value="Clinic">Elite Coaching Clinic</option>
+                                <option value="Exhibition">Exhibition & Gala</option>
+                                <option value="Corporate">Corporate Retreat & Team Match</option>
                             </select>
                         </div>
                         <div>
-                            <label>Estimated Players</label>
-                            <input type="number" id="p-players" placeholder="e.g. 16">
+                            <label for="p-players">Anticipated Players</label>
+                            <input type="number" id="p-players" placeholder="e.g. 16" min="2" max="256" value="16" required>
                         </div>
                     </div>
                 </div>
 
-                <!-- STEP 2: RESOURCES -->
+                <!-- STEP 2: REQUIREMENTS -->
                 <div class="wizard-step" id="step-2">
-                    <h2>Step 2: Requirements</h2>
-                    <p>What resources will you need on the day?</p>
+                    <h2>Step 2: Facilities & Staffing</h2>
+                    <p style="color: #666; margin-top: 0.3rem;">Choose tournament infrastructure and pro coaching staffing.</p>
                     <div class="form-grid">
                         <div>
-                            <label>Number of Courts</label>
+                            <label for="p-courts">Dedicated Courts</label>
                             <select id="p-courts">
-                                <option value="2">2 Courts</option>
-                                <option value="4">4 Courts</option>
-                                <option value="8">8+ Courts (Full Facility)</option>
+                                <option value="2">2 Courts (Up to 12 players)</option>
+                                <option value="4" selected>4 Courts (Up to 24 players)</option>
+                                <option value="8">8+ Courts (Full Facility / Club Buyout)</option>
                             </select>
                         </div>
                         <div>
-                            <label>Coaching Staff</label>
-                            <select id="p-staff">
-                                <option value="none">None required</option>
-                                <option value="basic">Basic (2 Coaches)</option>
-                                <option value="elite">Elite (4+ Pro Coaches)</option>
+                            <label for="p-hours">Estimated Duration</label>
+                            <select id="p-hours">
+                                <option value="4">Half Day (4 Hours)</option>
+                                <option value="8" selected>Full Day (8 Hours)</option>
+                                <option value="16">Weekend Series (2 Days / 16 Hours)</option>
                             </select>
                         </div>
-                        <div class="full-width">
-                            <label>Catering Requirements</label>
+                        <div>
+                            <label for="p-staff">Coaching & Referee Staff</label>
+                            <select id="p-staff">
+                                <option value="none">Self-Officiated (No Staff)</option>
+                                <option value="basic" selected>Pro Staff (2 Certified Coaches / Umpire)</option>
+                                <option value="elite">Elite ATP Master Staff (4+ Coaches & Physio)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="p-catering">Hospitality & Catering</label>
                             <select id="p-catering">
                                 <option value="none">No catering</option>
-                                <option value="drinks">Hydration & Snacks</option>
-                                <option value="full">Full VIP Buffet & Lounge</option>
+                                <option value="hydration" selected>Hydration & Energy Lounge</option>
+                                <option value="vip">Full VIP Buffet, BBQ & Player Lounge</option>
                             </select>
                         </div>
                     </div>
@@ -118,19 +175,19 @@
 
                 <!-- STEP 3: LOGISTICS -->
                 <div class="wizard-step" id="step-3">
-                    <h2>Step 3: Logistics</h2>
-                    <p>When and where should the magic happen?</p>
+                    <h2>Step 3: Venue & Schedule</h2>
+                    <p style="color: #666; margin-top: 0.3rem;">Select preferred court surface and execution timeline.</p>
                     <div class="form-grid">
                         <div class="full-width">
-                            <label>Preferred Date</label>
+                            <label for="p-date">Target Date</label>
                             <input type="date" id="p-date" required>
                         </div>
                         <div class="full-width">
-                            <label>Venue Preference</label>
+                            <label for="p-venue">Court Surface & Venue Type</label>
                             <select id="p-venue">
-                                <option value="Indoor">Indoor Hard Courts</option>
-                                <option value="Outdoor">Outdoor Clay Courts</option>
-                                <option value="Grass">Premium Grass Courts</option>
+                                <option value="Hard Court" selected>Championship Hard Courts (Plexicushion)</option>
+                                <option value="Red Clay">Authentic Red Clay Courts (Roland Garros Standard)</option>
+                                <option value="Lawn Grass">Exclusive Natural Lawn Grass Courts</option>
                             </select>
                         </div>
                     </div>
@@ -138,32 +195,55 @@
 
                 <!-- STEP 4: REVIEW -->
                 <div class="wizard-step" id="step-4">
-                    <h2>Step 4: Final Review</h2>
-                    <p>Check your details before we calculate your proposal.</p>
-                    <div id="summary-area" style="background: #f4f4f4; padding: 2rem; border-radius: 10px; margin-top: 1.5rem;">
+                    <h2>Step 4: Tactical Review & Quote</h2>
+                    <p style="color: #666; margin-top: 0.3rem;">Verify your event specifications and submit for director approval.</p>
+                    <div id="summary-area" style="background: #f9fbf9; padding: 2rem; border-radius: 16px; margin-top: 1.5rem; border: 1px solid #edf2ed;">
                         <!-- JS populated -->
                     </div>
                     <div class="form-grid" style="margin-top: 2rem;">
                         <div class="full-width">
-                            <label>Your Email Address</label>
-                            <input type="email" id="p-email" placeholder="tennis@example.com" required>
+                            <label for="p-email">Proposal Delivery Email</label>
+                            <input type="email" id="p-email" placeholder="director@example.com" required>
                         </div>
+                        <div class="full-width">
+                            <label for="p-notes">Custom Logistics or Equipment Notes (Optional)</label>
+                            <textarea id="p-notes" rows="3" placeholder="Specify racket stringing service, ball sponsor requirements, or VIP transport..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Dynamic Cost Estimator -->
+                <div class="estimator-card" id="live-estimator" style="background: #0d2b1a; color: white; border: 1px solid rgba(223, 255, 0, 0.2);">
+                    <div class="estimator-header">
+                        <div>
+                            <span>Estimated Tactical Budget</span>
+                            <div class="estimator-price" id="calc-total">$1,850</div>
+                        </div>
+                        <span style="color: var(--vibrant-yellow); font-weight: 700; font-size: 0.75rem;">LIVE ESTIMATOR</span>
+                    </div>
+                    <div class="estimator-breakdown" id="calc-breakdown">
+                        <!-- JS populated breakdown -->
                     </div>
                 </div>
 
                 <div class="wizard-nav">
                     <button type="button" id="prev-btn" class="cta-button" style="background: #eee; color: #333; display: none;">Back</button>
                     <button type="button" id="next-btn" class="cta-button">Continue</button>
-                    <button type="submit" id="submit-btn" class="cta-button" style="display: none;">Send for Approval</button>
+                    <button type="submit" id="submit-btn" class="cta-button" style="display: none;">Submit for Tactical Quote</button>
                 </div>
             </form>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Wild Card Tennis. Elite Event Systems.</p>
+        <div class="logo-container" style="justify-content: center; margin-bottom: 2rem;">
+            <img src="logo.png" alt="Logo">
+            <span style="color: var(--vibrant-yellow);">WILD CARD</span>
+        </div>
+        <p>&copy; 2026 Wild Card Tennis. Elite Event Systems. All Rights Reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
     <script src="planner.js"></script>
     <script type="module" src="auth.js"></script>
 </body>

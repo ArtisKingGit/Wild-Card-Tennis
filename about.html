@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Wild Card Tennis - Our mission, coaching standard, and commitment to redefining tennis experiences.">
     <title>About Us | Wild Card Tennis</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,8 +15,8 @@
     <header>
         <div class="logo-container">
             <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
-                <img src="logo.png" alt="Logo">
-                <span style="color: var(--vibrant-yellow);">WILD CARD</span>
+                <img src="logo.png" alt="Wild Card Tennis Logo">
+                <span>WILD CARD</span>
             </a>
         </div>
         <nav>
@@ -26,12 +27,48 @@
                 <li><a href="about.html" class="nav-active">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-        <div style="display: flex; align-items: center; gap: 1rem;">
-            <span class="member-badge"></span>
-            <a href="auth.html" class="login-trigger" style="color: var(--white); text-decoration: none; font-size: 0.8rem; font-weight: 700;">Login</a>
+        </nav>
+        <div class="header-actions" style="display: flex; align-items: center; gap: 1rem;">
+            <a href="account.html" style="text-decoration: none; color: inherit;">
+                <div class="user-profile" id="user-profile">
+                    <img src="" alt="Profile" class="profile-img" id="user-pic">
+                    <div class="welcome-msg">
+                        <span>Locker Room</span>
+                        <span id="user-name">Player</span>
+                    </div>
+                </div>
+            </a>
+            <a href="auth.html" class="login-button">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
+                Login
+            </a>
             <a href="#" id="logout-link">Logout</a>
+            <button class="hamburger-btn" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer-overlay"></div>
+    <aside class="mobile-drawer">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo">
+            <span>WILD CARD</span>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="planner.html">Planner</a></li>
+            <li><a href="about.html" class="nav-active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="account.html">My Dashboard</a></li>
+        </ul>
+    </aside>
 
     <div class="sub-hero">
         <h1>The Wild Card Standard</h1>
@@ -39,27 +76,47 @@
     </div>
 
     <div class="page-wrapper">
-        <div style="max-width: 800px; margin: 0 auto; line-height: 1.8;">
-            <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: var(--primary-green);">Our Mission</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 3rem;">At Wild Card Tennis, we believe that world-class tennis events should be accessible to all who share the passion. Founded by tennis enthusiasts and event logistics experts, we bridge the gap between amateur play and professional organization.</p>
+        <div style="max-width: 900px; margin: 0 auto; line-height: 1.8;">
+            <h2 style="font-size: 2.8rem; margin-bottom: 1.5rem; color: var(--primary-green);">Our Mission</h2>
+            <p style="font-size: 1.15rem; margin-bottom: 3rem; color: #444;">At Wild Card Tennis, we believe that world-class tennis events and training should be accessible to all who share the passion. Founded by tennis enthusiasts and tournament directors, we bridge the gap between recreational competition and professional-grade execution.</p>
             
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 4rem;">
-                <div>
-                    <h3 style="color: var(--secondary-green); margin-bottom: 1rem;">Why "Wild Card"?</h3>
-                    <p>In tennis, a Wild Card is an opportunity—a chance to prove yourself regardless of ranking. We aim to be that opportunity for every organizer, coach, and player who wants to elevate their game.</p>
+            <div class="stats-grid" style="margin-bottom: 4rem;">
+                <div class="stat-card" style="text-align: center;">
+                    <strong style="font-size: 2.5rem;">50+</strong>
+                    <span>Tournaments Hosted</span>
                 </div>
-                <div>
-                    <h3 style="color: var(--secondary-green); margin-bottom: 1rem;">Our Excellence</h3>
-                    <p>From the tension of the strings to the precision of the lawn, we obsess over the details that define the professional experience.</p>
+                <div class="stat-card" style="text-align: center;">
+                    <strong style="font-size: 2.5rem;">1,200+</strong>
+                    <span>Active Competitors</span>
+                </div>
+                <div class="stat-card" style="text-align: center;">
+                    <strong style="font-size: 2.5rem;">100%</strong>
+                    <span>ATP Standard Precision</span>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem;">
+                <div style="background: #f9fbf9; padding: 2rem; border-radius: 20px; border: 1px solid #edf2ed;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 1rem; font-size: 1.4rem;">Why "Wild Card"?</h3>
+                    <p style="color: #555;">In tennis, a Wild Card is an opportunity—a chance to prove yourself regardless of previous seeding. We aim to be that breakthrough platform for every player, coach, and event organizer ready to elevate their standard.</p>
+                </div>
+                <div style="background: #f9fbf9; padding: 2rem; border-radius: 20px; border: 1px solid #edf2ed;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 1rem; font-size: 1.4rem;">Obsessive Logistics</h3>
+                    <p style="color: #555;">From calibrated string tensions to laser-level clay court rolling, we obsess over the subtle details that elevate a good match into an unforgettable championship experience.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Wild Card Tennis. Elite Event Systems.</p>
+        <div class="logo-container" style="justify-content: center; margin-bottom: 2rem;">
+            <img src="logo.png" alt="Logo">
+            <span style="color: var(--vibrant-yellow);">WILD CARD</span>
+        </div>
+        <p>&copy; 2026 Wild Card Tennis. Elite Event Systems. All Rights Reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
     <script type="module" src="auth.js"></script>
 </body>
 </html>

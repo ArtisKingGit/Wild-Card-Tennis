@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Wild Card Tennis - Connect with our tournament directors, venue booking managers, and coaching staff.">
     <title>Contact Us | Wild Card Tennis</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,8 +17,8 @@
     <header>
         <div class="logo-container">
             <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
-                <img src="logo.png" alt="Logo">
-                <span style="color: var(--vibrant-yellow);">WILD CARD</span>
+                <img src="logo.png" alt="Wild Card Tennis Logo">
+                <span>WILD CARD</span>
             </a>
         </div>
         <nav>
@@ -28,55 +29,136 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html" class="nav-active">Contact</a></li>
             </ul>
-        <div style="display: flex; align-items: center; gap: 1rem;">
-            <span class="member-badge"></span>
-            <a href="auth.html" class="login-trigger" style="color: var(--white); text-decoration: none; font-size: 0.8rem; font-weight: 700;">Login</a>
+        </nav>
+        <div class="header-actions" style="display: flex; align-items: center; gap: 1rem;">
+            <a href="account.html" style="text-decoration: none; color: inherit;">
+                <div class="user-profile" id="user-profile">
+                    <img src="" alt="Profile" class="profile-img" id="user-pic">
+                    <div class="welcome-msg">
+                        <span>Locker Room</span>
+                        <span id="user-name">Player</span>
+                    </div>
+                </div>
+            </a>
+            <a href="auth.html" class="login-button">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
+                Login
+            </a>
             <a href="#" id="logout-link">Logout</a>
+            <button class="hamburger-btn" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer-overlay"></div>
+    <aside class="mobile-drawer">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo">
+            <span>WILD CARD</span>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="planner.html">Planner</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="nav-active">Contact</a></li>
+            <li><a href="account.html">My Dashboard</a></li>
+        </ul>
+    </aside>
+
     <div class="sub-hero">
         <h1>Connect With Us</h1>
-        <p>Ready to hit the court? We're here to help.</p>
+        <p>Ready to hit the court or host an event? Our tournament team is on standby.</p>
     </div>
 
     <div class="page-wrapper">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;" class="contact-layout">
             <div>
-                <h2 style="font-size: 2.5rem; color: var(--primary-green); margin-bottom: 2rem;">Get in Touch</h2>
-                <div style="margin-bottom: 2rem;">
-                    <p style="font-weight: 800; color: var(--secondary-green);">OFFICE</p>
-                    <p>Nairobi Club,<br>Nairobi, Kenya</p>
+                <h2 style="font-size: 2.8rem; color: var(--primary-green); margin-bottom: 2rem;">Get in Touch</h2>
+                <div style="margin-bottom: 2rem; background: #f9fbf9; padding: 1.5rem; border-radius: 16px; border: 1px solid #edf2ed;">
+                    <p style="font-weight: 800; color: var(--secondary-green); font-size: 0.85rem; letter-spacing: 1px;">HEADQUARTERS</p>
+                    <p style="font-size: 1.1rem; font-weight: 600; color: var(--primary-green); margin-top: 0.3rem;">Nairobi Club Tennis Pavilion,<br>Nairobi, Kenya</p>
                 </div>
-                <div style="margin-bottom: 2rem;">
-                    <p style="font-weight: 800; color: var(--secondary-green);">EMAIL</p>
-                    <p>rogoij@gmail.com</p>
+                <div style="margin-bottom: 2rem; background: #f9fbf9; padding: 1.5rem; border-radius: 16px; border: 1px solid #edf2ed;">
+                    <p style="font-weight: 800; color: var(--secondary-green); font-size: 0.85rem; letter-spacing: 1px;">DIRECTOR INQUIRIES</p>
+                    <p style="font-size: 1.1rem; font-weight: 600; color: var(--primary-green); margin-top: 0.3rem;">rogoij@gmail.com</p>
                 </div>
-                <div style="margin-bottom: 2rem;">
-                    <p style="font-weight: 800; color: var(--secondary-green);">PHONE</p>
-                    <p>+254 722 102 870</p>
+                <div style="margin-bottom: 2rem; background: #f9fbf9; padding: 1.5rem; border-radius: 16px; border: 1px solid #edf2ed;">
+                    <p style="font-weight: 800; color: var(--secondary-green); font-size: 0.85rem; letter-spacing: 1px;">DIRECT PHONE</p>
+                    <p style="font-size: 1.1rem; font-weight: 600; color: var(--primary-green); margin-top: 0.3rem;">+254 722 102 870</p>
                 </div>
             </div>
             <div>
-                <form class="planner-form"
-                    style="background: var(--white); padding: 2rem; border-radius: 15px; border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-                    <input type="text" placeholder="Your Name" required
-                        style="color: #333; border: 1px solid #ddd; background: #fff;">
-                    <input type="email" placeholder="Your Email" required
-                        style="color: #333; border: 1px solid #ddd; background: #fff;">
-                    <textarea placeholder="Your Message" rows="5" required
-                        style="color: #333; border: 1px solid #ddd; background: #fff;"></textarea>
-                    <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                <form id="contact-form" class="dashboard-form"
+                    style="background: var(--white); padding: 2.5rem; border-radius: 20px; border: 1px solid #eee; box-shadow: 0 10px 35px rgba(0,0,0,0.05);">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary-green); font-size: 1.6rem;">Send an Inquiry</h3>
+                    <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+                        <div class="form-group">
+                            <label for="c-name">Your Full Name</label>
+                            <input type="text" id="c-name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="c-email">Your Email Address</label>
+                            <input type="email" id="c-email" placeholder="player@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="c-subject">Inquiry Subject</label>
+                            <select id="c-subject">
+                                <option value="Tournament Registration">Tournament Registration</option>
+                                <option value="Private Court Booking">Private Court Booking</option>
+                                <option value="Coaching & Clinic">Coaching & Clinic</option>
+                                <option value="Corporate Event Planning">Corporate Event Planning</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="c-msg">Your Message</label>
+                            <textarea id="c-msg" placeholder="Tell us how we can assist your tennis journey..." rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button" style="width: 100%; margin-top: 0.5rem;">Send Dispatch</button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Wild Card Tennis. Elite Event Systems.</p>
+        <div class="logo-container" style="justify-content: center; margin-bottom: 2rem;">
+            <img src="logo.png" alt="Logo">
+            <span style="color: var(--vibrant-yellow);">WILD CARD</span>
+        </div>
+        <p>&copy; 2026 Wild Card Tennis. Elite Event Systems. All Rights Reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
     <script type="module" src="auth.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    if (submitBtn) submitBtn.classList.add('btn-loading');
+
+                    setTimeout(() => {
+                        if (submitBtn) submitBtn.classList.remove('btn-loading');
+                        if (window.showToast) {
+                            window.showToast('Message sent successfully! Our tournament director will respond within 24 hours.', 'success', 4500);
+                        }
+                        contactForm.reset();
+                    }, 900);
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

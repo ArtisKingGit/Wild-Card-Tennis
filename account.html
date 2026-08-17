@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wild Card Tennis Member Dashboard - Manage your matches, tournament passes, preferences, and custom event proposals.">
     <title>My Account | Wild Card Tennis</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,8 +15,8 @@
     <header>
         <div class="logo-container">
             <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
-                <img src="logo.png" alt="Logo">
-                <span style="color: var(--vibrant-yellow);">WILD CARD</span>
+                <img src="logo.png" alt="Wild Card Tennis Logo">
+                <span>WILD CARD</span>
             </a>
         </div>
         <nav>
@@ -23,19 +24,43 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="planner.html">Planner</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-        <div style="display: flex; align-items: center; gap: 1rem;">
-             <div class="user-profile" id="user-profile">
+        <div class="header-actions" style="display: flex; align-items: center; gap: 1rem;">
+            <div class="user-profile" id="user-profile" style="display: inline-flex;">
                 <img src="" alt="Profile" class="profile-img" id="user-pic">
                 <div class="welcome-msg">
-                    <span>Account</span>
+                    <span>Locker Room</span>
                     <span id="user-name">Player</span>
                 </div>
             </div>
-            <a href="#" id="logout-link" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.7rem; background: transparent; border: 1px solid var(--vibrant-yellow); color: var(--vibrant-yellow);">Logout</a>
+            <a href="#" id="logout-link" class="cta-button" style="padding: 0.5rem 1rem; font-size: 0.75rem; background: transparent; border: 1px solid var(--vibrant-yellow); color: var(--vibrant-yellow);">Logout</a>
+            <button class="hamburger-btn" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer-overlay"></div>
+    <aside class="mobile-drawer">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo">
+            <span>WILD CARD</span>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="planner.html">Planner</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="account.html" class="nav-active">My Dashboard</a></li>
+        </ul>
+    </aside>
 
     <main class="dashboard-container">
         <aside class="dashboard-sidebar">
@@ -43,110 +68,181 @@
                 <img src="" alt="User" class="sidebar-avatar" id="sidebar-pic">
                 <h3 id="sidebar-name">Player Name</h3>
                 <p id="sidebar-email">player@example.com</p>
-                <span class="membership-tag">Elite Member</span>
+                <span class="membership-tag" id="sidebar-tier-badge">Elite Member</span>
             </div>
             <nav class="sidebar-nav">
                 <a href="#overview" class="active">Overview</a>
                 <a href="#profile">Profile Settings</a>
-                <a href="#tennis">Tennis Stats</a>
-                <a href="#events">My Events</a>
-                <a href="#membership">Membership</a>
+                <a href="#tennis">Tennis Stats & Gear</a>
+                <a href="#events">My Events & Plans</a>
+                <a href="#membership">Membership Tier</a>
             </nav>
         </aside>
 
         <section class="dashboard-content">
-            <!-- OVERVIEW -->
+            <!-- 1. OVERVIEW -->
             <div id="overview" class="dashboard-tab active">
                 <h2>Welcome back, <span class="text-highlight" id="greeting-name">Player</span>!</h2>
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <span>Upcoming Matches</span>
-                        <strong>3</strong>
+                        <span>Active Tournament Passes</span>
+                        <strong id="stat-matches">0</strong>
                     </div>
                     <div class="stat-card">
-                        <span>Active Bookings</span>
-                        <strong>1</strong>
+                        <span>Event Proposals</span>
+                        <strong id="stat-plans">0</strong>
                     </div>
                     <div class="stat-card">
-                        <span>Account Level</span>
-                        <strong>Platinum</strong>
+                        <span>Current Tier</span>
+                        <strong id="stat-tier" style="color: var(--secondary-green);">Elite</strong>
                     </div>
                 </div>
                 
                 <div class="info-card">
-                    <h3>Recent Activity</h3>
-                    <ul class="activity-list">
-                        <li>Registered for <strong>Wimbledon Warmup</strong> <span>2 days ago</span></li>
-                        <li>Updated profile picture <span>5 days ago</span></li>
-                        <li>Planned a new corporate event <span>1 week ago</span></li>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3>Recent Player Activity</h3>
+                        <a href="events.html" class="cta-button" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">Browse More Events</a>
+                    </div>
+                    <ul class="activity-list" id="activity-feed">
+                        <li><span>Logged into Wild Card Locker Room</span> <span>Just now</span></li>
                     </ul>
                 </div>
             </div>
 
-            <!-- PROFILE SETTINGS -->
+            <!-- 2. PROFILE SETTINGS -->
             <div id="profile" class="dashboard-tab">
                 <h2>Profile Settings</h2>
                 <form id="profile-form" class="dashboard-form">
                     <div class="form-grid">
                         <div class="form-group">
-                            <label>Display Name</label>
-                            <input type="text" id="input-name" placeholder="Enter your name">
+                            <label for="input-name">Display Name</label>
+                            <input type="text" id="input-name" placeholder="Enter your full name" required>
                         </div>
                         <div class="form-group">
-                            <label>Email Address</label>
-                            <input type="email" id="input-email" disabled>
+                            <label for="input-email">Email Address</label>
+                            <input type="email" id="input-email" disabled style="background: #f5f5f5; cursor: not-allowed;">
                         </div>
                         <div class="form-group full-width">
-                            <label>Profile Picture URL</label>
-                            <input type="text" id="input-pic" placeholder="https://example.com/photo.jpg">
+                            <label for="input-pic">Custom Avatar Image URL</label>
+                            <input type="url" id="input-pic" placeholder="https://example.com/your-photo.jpg">
                         </div>
                         <div class="form-group full-width">
-                            <label>Bio</label>
-                            <textarea placeholder="Tell us about your tennis journey..."></textarea>
+                            <label for="input-bio">Player Bio & Career Highlights</label>
+                            <textarea id="input-bio" placeholder="Share your tennis background, preferred playing style, or local club..."></textarea>
                         </div>
                     </div>
-                    <button type="submit" class="cta-button">Save Changes</button>
+                    <button type="submit" class="cta-button">Save Profile Changes</button>
                 </form>
             </div>
 
-            <!-- TENNIS STATS -->
+            <!-- 3. TENNIS STATS & PREFERENCES -->
             <div id="tennis" class="dashboard-tab">
-                <h2>Tennis Stats & Preferences</h2>
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>Skill Level</label>
-                        <select>
-                            <option>Beginner</option>
-                            <option selected>Intermediate</option>
-                            <option>Advanced</option>
-                            <option>Pro</option>
-                        </select>
+                <h2>Tennis Stats & Player Gear</h2>
+                <form id="tennis-prefs-form" class="dashboard-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="pref-skill">NTRP / Skill Division</label>
+                            <select id="pref-skill">
+                                <option value="Beginner (1.5 - 2.5)">Beginner (1.5 - 2.5)</option>
+                                <option value="Intermediate (3.0 - 4.0)" selected>Intermediate (3.0 - 4.0)</option>
+                                <option value="Advanced (4.5 - 5.0)">Advanced (4.5 - 5.0)</option>
+                                <option value="Open / Pro (5.5+)">Open / Pro (5.5+)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pref-hand">Dominant Hand</label>
+                            <select id="pref-hand">
+                                <option value="Right-handed" selected>Right-handed (Single/Two-handed Backhand)</option>
+                                <option value="Left-handed">Left-handed (Southpaw)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pref-surface">Favorite Court Surface</label>
+                            <select id="pref-surface">
+                                <option value="Championship Hard Court" selected>Championship Hard Court</option>
+                                <option value="Authentic Red Clay">Authentic Red Clay</option>
+                                <option value="Natural Grass">Natural Grass</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pref-racket">Racket Brand & Model</label>
+                            <input type="text" id="pref-racket" placeholder="e.g. Wilson Pro Staff 97, Babolat Pure Aero" value="Wilson Blade 98 v8">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Handedness</label>
-                        <select>
-                            <option>Right-handed</option>
-                            <option>Left-handed</option>
-                        </select>
+                    <button type="submit" class="cta-button">Update Tennis Preferences</button>
+                </form>
+            </div>
+
+            <!-- 4. MY EVENTS & PLANS -->
+            <div id="events" class="dashboard-tab">
+                <h2>My Tournament Passes & Bookings</h2>
+                <div id="user-bookings-container">
+                    <!-- Populated by JS -->
+                </div>
+
+                <h2 style="margin-top: 3.5rem;">My Custom Event Proposals</h2>
+                <div id="user-plans-container">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- 5. MEMBERSHIP TIERS -->
+            <div id="membership" class="dashboard-tab">
+                <h2>Wild Card Membership Tiers</h2>
+                <p style="color: #666; margin-top: -1rem; margin-bottom: 2rem;">Unlock priority tournament invitations, coaching clinic discounts, and VIP lounge access.</p>
+                
+                <div class="membership-grid">
+                    <!-- Tier 1 -->
+                    <div class="tier-card" id="tier-card-associate">
+                        <div>
+                            <h3>Club Associate</h3>
+                            <div class="tier-price">$0 <span>/ month</span></div>
+                            <ul class="tier-features">
+                                <li>Public tournament registration</li>
+                                <li>Access to Event Planning wizard</li>
+                                <li>Standard equipment rental</li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn-secondary select-tier-btn" data-tier="Associate">Current Plan</button>
                     </div>
-                    <div class="form-group">
-                        <label>Preferred Surface</label>
-                        <select>
-                            <option>Grass</option>
-                            <option>Clay</option>
-                            <option selected>Hard Court</option>
-                        </select>
+
+                    <!-- Tier 2 -->
+                    <div class="tier-card current featured" id="tier-card-elite">
+                        <span class="tier-badge">Active Plan</span>
+                        <div>
+                            <h3>Elite Competitor</h3>
+                            <div class="tier-price">$99 <span>/ month</span></div>
+                            <ul class="tier-features">
+                                <li>15% off all tournament registrations</li>
+                                <li>Priority court booking & floodlight access</li>
+                                <li>Monthly pro masterclass clinic</li>
+                                <li>Complimentary racket stringing (2x/mo)</li>
+                            </ul>
+                        </div>
+                        <button type="button" class="cta-button select-tier-btn" data-tier="Elite" style="width: 100%;">Active Plan</button>
                     </div>
-                    <div class="form-group">
-                        <label>Racket Brand</label>
-                        <input type="text" placeholder="e.g. Wilson, Babolat">
+
+                    <!-- Tier 3 -->
+                    <div class="tier-card" id="tier-card-vip">
+                        <div>
+                            <h3>VIP Grand Slam</h3>
+                            <div class="tier-price">$249 <span>/ month</span></div>
+                            <ul class="tier-features">
+                                <li>Unlimited court reservations</li>
+                                <li>Guaranteed seed in all tournaments</li>
+                                <li>1-on-1 monthly ATP coach private session</li>
+                                <li>VIP Hospitality & Player Lounge access</li>
+                                <li>Complimentary Wild Card tournament apparel</li>
+                            </ul>
+                        </div>
+                        <button type="button" class="cta-button select-tier-btn" data-tier="VIP Grand Slam" style="width: 100%;">Upgrade to VIP</button>
                     </div>
                 </div>
-                <button type="button" class="cta-button">Update Preferences</button>
             </div>
         </section>
     </main>
 
+    <script src="script.js"></script>
     <script type="module" src="auth.js"></script>
     <script type="module" src="account.js"></script>
 </body>
