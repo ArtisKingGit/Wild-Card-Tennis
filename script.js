@@ -100,18 +100,38 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = isOpen ? 'hidden' : '';
         };
 
+        const closeDrawer = () => {
+            if (mobileDrawer.classList.contains('open')) {
+                mobileDrawer.classList.remove('open');
+                hamburgerBtn.classList.remove('active');
+                if (drawerOverlay) drawerOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        };
+
         hamburgerBtn.addEventListener('click', toggleDrawer);
 
         if (drawerOverlay) {
-            drawerOverlay.addEventListener('click', toggleDrawer);
+            drawerOverlay.addEventListener('click', closeDrawer);
         }
 
-        mobileDrawer.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (mobileDrawer.classList.contains('open')) {
-                    toggleDrawer();
-                }
-            });
+        mobileDrawer.querySelectorAll('a, .mobile-drawer-close').forEach(link => {
+            link.addEventListener('click', closeDrawer);
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeDrawer();
+                document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
+            }
+        });
+
+        // Reset scroll lock on resize to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && mobileDrawer.classList.contains('open')) {
+                closeDrawer();
+            }
         });
     }
 

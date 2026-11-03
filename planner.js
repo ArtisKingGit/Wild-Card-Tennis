@@ -33,6 +33,35 @@ document.addEventListener('DOMContentLoaded', () => {
         pDate.value = d.toISOString().split('T')[0];
     }
 
+    const getDurationTag = (hours) => {
+        if (hours <= 2) return 'Quick Match';
+        if (hours <= 4) return 'Half Day';
+        if (hours <= 8) return 'Full Day';
+        if (hours <= 16) return 'Weekend Series';
+        return 'Facility Buyout';
+    };
+
+    const updateDurationDisplay = () => {
+        if (!pHours) return;
+        const hours = parseInt(pHours.value) || 8;
+        const hoursVal = document.getElementById('hours-val');
+        const hoursTag = document.getElementById('hours-tag');
+        if (hoursVal) hoursVal.innerText = hours;
+        if (hoursTag) hoursTag.innerText = getDurationTag(hours);
+
+        // Update active gradient fill on range track
+        const min = parseInt(pHours.min) || 1;
+        const max = parseInt(pHours.max) || 24;
+        const pct = ((hours - min) / (max - min)) * 100;
+        pHours.style.setProperty('--slider-pct', `${pct}%`);
+
+        // Highlight matching preset button
+        document.querySelectorAll('.duration-chip').forEach(chip => {
+            const chipHours = parseInt(chip.dataset.hours);
+            chip.classList.toggle('active', chipHours === hours);
+        });
+    };
+
     const calculateCost = () => {
         const courts = parseInt(pCourts ? pCourts.value : 4);
         const hours = parseInt(pHours ? pHours.value : 8);
@@ -41,55 +70,69 @@ document.addEventListener('DOMContentLoaded', () => {
         const catering = pCatering ? pCatering.value : 'hydration';
         const venue = pVenue ? pVenue.value : 'Hard Court';
 
-        // 1. Court Cost
-        const hourlyRate = courts === 2 ? 50 : courts === 4 ? 90 : 160;
+        updateDurationDisplay();
+
+        // 1. Court Cost (in KSh)
+        const hourlyRate = courts === 2 ? 6500 : courts === 4 ? 12000 : 22000;
         const courtCost = hourlyRate * hours;
 
-        // 2. Staff Cost
+        // 2. Staff Cost (in KSh)
         let staffCost = 0;
-        if (staff === 'basic') staffCost = 350;
-        if (staff === 'elite') staffCost = 850;
+        if (staff === 'basic') staffCost = 45000;
+        if (staff === 'elite') staffCost = 110000;
 
-        // 3. Catering Cost
+        // 3. Catering Cost (in KSh)
         let cateringCost = 0;
-        if (catering === 'hydration') cateringCost = players * 15;
-        if (catering === 'vip') cateringCost = players * 45;
+        if (catering === 'hydration') cateringCost = players * 2000;
+        if (catering === 'vip') cateringCost = players * 6000;
 
-        // 4. Venue Premium
+        // 4. Venue Premium (in KSh)
         let venueFee = 0;
-        if (venue === 'Red Clay') venueFee = 250;
-        if (venue === 'Lawn Grass') venueFee = 600;
+        if (venue === 'Red Clay') venueFee = 35000;
+        if (venue === 'Lawn Grass') venueFee = 80000;
 
         const total = courtCost + staffCost + cateringCost + venueFee;
 
         if (calcTotal) {
-            calcTotal.innerText = `$${total.toLocaleString()}`;
+            calcTotal.innerText = `KSh ${total.toLocaleString()}`;
         }
 
         if (calcBreakdown) {
             calcBreakdown.innerHTML = `
                 <div class="estimator-row">
-                    <span>${courts} Courts (${hours}h @ $${hourlyRate}/h)</span>
-                    <strong>$${courtCost.toLocaleString()}</strong>
+                    <span>${courts} Courts (${hours}h on pitch @ KSh ${hourlyRate.toLocaleString()}/h)</span>
+                    <strong>KSh ${courtCost.toLocaleString()}</strong>
                 </div>
                 <div class="estimator-row">
                     <span>Staffing (${staff === 'none' ? 'None' : staff === 'basic' ? '2 Coaches' : 'Elite Master Staff'})</span>
-                    <strong>$${staffCost.toLocaleString()}</strong>
+                    <strong>KSh ${staffCost.toLocaleString()}</strong>
                 </div>
                 <div class="estimator-row">
                     <span>Catering (${players} players)</span>
-                    <strong>$${cateringCost.toLocaleString()}</strong>
+                    <strong>KSh ${cateringCost.toLocaleString()}</strong>
                 </div>
                 ${venueFee > 0 ? `
                 <div class="estimator-row">
                     <span>${venue} Surface Prep</span>
-                    <strong>$${venueFee.toLocaleString()}</strong>
+                    <strong>KSh ${venueFee.toLocaleString()}</strong>
                 </div>` : ''}
             `;
         }
 
         return { total, courtCost, staffCost, cateringCost, venueFee };
     };
+
+    // Attach preset chip listeners
+    document.querySelectorAll('.duration-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            const h = parseInt(chip.dataset.hours);
+            if (pHours && !isNaN(h)) {
+                pHours.value = h;
+                updateDurationDisplay();
+                calculateCost();
+            }
+        });
+    });
 
     // Attach real-time calculation listeners
     [pCourts, pHours, pPlayers, pStaff, pCatering, pVenue].forEach(el => {
@@ -99,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    updateDurationDisplay();
     calculateCost();
 
     const validateStep = (step) => {
@@ -165,16 +209,16 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         summaryArea.innerHTML = `
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; font-size: 0.95rem;">
+            <div class="summary-grid">
                 <div><strong style="color: var(--primary-green);">Event:</strong> ${data.name}</div>
                 <div><strong style="color: var(--primary-green);">Category:</strong> ${data.type}</div>
                 <div><strong style="color: var(--primary-green);">Players:</strong> ${data.players} Players</div>
-                <div><strong style="color: var(--primary-green);">Duration:</strong> ${data.hours} Hours</div>
+                <div><strong style="color: var(--primary-green);">Duration on Pitch:</strong> ${data.hours} Hours (${getDurationTag(parseInt(data.hours))})</div>
                 <div><strong style="color: var(--primary-green);">Facility:</strong> ${data.courts} Courts (${data.venue})</div>
                 <div><strong style="color: var(--primary-green);">Staffing:</strong> ${data.staff}</div>
                 <div><strong style="color: var(--primary-green);">Catering:</strong> ${data.catering}</div>
-                <div><strong style="color: var(--primary-green);">Estimated Total:</strong> <span style="color: var(--primary-green); font-weight: 800; font-size: 1.1rem;">$${total.toLocaleString()}</span></div>
-                <div style="grid-column: 1 / span 2; border-top: 1px solid #e0eae0; padding-top: 1rem; margin-top: 0.5rem; color: var(--secondary-green); font-weight: 700;">
+                <div><strong style="color: var(--primary-green);">Estimated Total:</strong> <span style="color: var(--primary-green); font-weight: 800; font-size: 1.1rem;">KSh ${total.toLocaleString()}</span></div>
+                <div class="summary-full-row">
                     Scheduled Date: ${data.date}
                 </div>
             </div>
@@ -216,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 venue: pVenue.value,
                 email: pEmail.value,
                 notes: pNotes ? pNotes.value : '',
-                estimatedBudget: `$${total.toLocaleString()}`,
+                estimatedBudget: `KSh ${total.toLocaleString()}`,
                 status: 'Under Review'
             };
 

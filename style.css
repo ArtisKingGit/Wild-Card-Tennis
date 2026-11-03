@@ -525,55 +525,9 @@ footer {
     color: var(--white);
 }
 
-/* PAGE WRAPPER */
 .page-wrapper {
     min-height: 80vh;
     padding: 4rem 10%;
-}
-
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.8rem;
-    }
-
-    .planner-container {
-        grid-template-columns: 1fr;
-        padding: 2rem;
-    }
-
-    .contact-layout {
-        grid-template-columns: 1fr !important;
-        gap: 2.5rem !important;
-    }
-
-    #about {
-        grid-template-columns: 1fr !important;
-        gap: 2.5rem !important;
-    }
-
-    nav ul {
-        display: none;
-    }
-
-    .wizard-box {
-        padding: 1.5rem;
-    }
-
-    .form-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .full-width {
-        grid-column: auto;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr !important;
-    }
-
-    .page-wrapper {
-        padding: 3rem 5%;
-    }
 }
 
 /* AUTHENTICATION SYSTEM */
@@ -933,17 +887,6 @@ footer {
     resize: none;
 }
 
-@media (max-width: 1024px) {
-    .dashboard-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .dashboard-sidebar {
-        position: relative;
-        top: 0;
-    }
-}
-
 /* ==========================================================================
    MOBILE NAVIGATION DRAWER & HAMBURGER
    ========================================================================== */
@@ -1043,18 +986,6 @@ footer {
 
 .mobile-drawer a:hover, .mobile-drawer a.nav-active {
     color: var(--vibrant-yellow);
-}
-
-@media (max-width: 768px) {
-    .hamburger-btn {
-        display: flex;
-    }
-    nav ul {
-        display: none !important;
-    }
-    .header-actions {
-        gap: 0.5rem !important;
-    }
 }
 
 /* ==========================================================================
@@ -1501,7 +1432,7 @@ footer {
 }
 
 .tier-features li::before {
-    content: '✓';
+    content: 'âœ“';
     color: var(--secondary-green);
     font-weight: 900;
 }
@@ -1529,4 +1460,864 @@ footer {
 
 @keyframes spin {
     to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   Pitch / Court Duration Range Slider
+   ========================================================================== */
+.duration-pill-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #eef7f1;
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    border: 1px solid #cce5d4;
+}
+
+.hours-tag-pill {
+    background: var(--primary-green);
+    color: var(--vibrant-yellow);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 0.22rem 0.65rem;
+    border-radius: 12px;
+    margin-left: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+}
+
+.slider-container {
+    position: relative;
+    padding: 0.5rem 0 0.2rem;
+}
+
+.pitch-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 8px;
+    background: linear-gradient(to right, var(--primary-green) 0%, var(--secondary-green) var(--slider-pct, 30.4%), #e0eae0 var(--slider-pct, 30.4%), #e0eae0 100%);
+    outline: none;
+    cursor: pointer;
+    transition: background 0.15s ease;
+    margin: 0.8rem 0 0.4rem;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.pitch-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--vibrant-yellow);
+    border: 3px solid var(--primary-green);
+    cursor: grab;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s;
+}
+
+.pitch-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.25);
+    box-shadow: 0 4px 14px rgba(26, 77, 46, 0.45);
+}
+
+.pitch-slider::-webkit-slider-thumb:active {
+    cursor: grabbing;
+    transform: scale(1.15);
+    box-shadow: 0 0 0 6px rgba(46, 204, 113, 0.3);
+}
+
+.pitch-slider::-moz-range-thumb {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--vibrant-yellow);
+    border: 3px solid var(--primary-green);
+    cursor: grab;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s;
+}
+
+.pitch-slider::-moz-range-thumb:hover {
+    transform: scale(1.25);
+    box-shadow: 0 4px 14px rgba(26, 77, 46, 0.45);
+}
+
+.slider-ticks {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4px;
+    color: #888;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 0.3rem;
+}
+
+.duration-presets {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+    border-top: 1px dashed #d5e5d8;
+}
+
+.duration-chip {
+    background: #ffffff;
+    border: 1px solid #cde0d1;
+    color: var(--primary-green);
+    padding: 0.4rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.duration-chip:hover {
+    background: #e8f5ec;
+    border-color: var(--primary-green);
+    transform: translateY(-1px);
+}
+
+.duration-chip.active {
+    background: var(--primary-green);
+    color: var(--white);
+    border-color: var(--primary-green);
+    box-shadow: 0 2px 8px rgba(26, 77, 46, 0.25);
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    font-size: 0.95rem;
+}
+
+.summary-full-row {
+    grid-column: 1 / -1;
+    border-top: 1px solid #e0eae0;
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    color: var(--secondary-green);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   MASTER RESPONSIVE ENGINE (MOBILE & TABLET EXCELLENCE)
+   ========================================================================== */
+
+/* 1. TABLET BREAKPOINT (max-width: 1024px) */
+@media (max-width: 1024px) {
+    header {
+        padding: 1.2rem 4%;
+    }
+
+    .hero {
+        padding-top: 130px;
+        min-height: 75vh;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .dashboard-container {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+        padding: 6.5rem 4% 3rem;
+    }
+
+    .dashboard-sidebar {
+        position: relative;
+        top: 0;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.5rem;
+        gap: 0.6rem;
+        scrollbar-width: none;
+    }
+
+    .sidebar-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .sidebar-nav a {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 0.65rem 1.2rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+    }
+
+    .planner-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2.5rem;
+    }
+
+    .events-grid,
+    #event-directory {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .membership-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+    }
+
+    .contact-layout,
+    #about {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+/* 2. MOBILE & PHABLET BREAKPOINT (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Touch & iOS Zoom Safeguards: font-size 16px prevents automatic browser zooming */
+    input, select, textarea, button {
+        font-size: 16px !important;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    button, .cta-button, .btn-secondary, .btn-danger, .filter-btn, .duration-chip {
+        touch-action: manipulation;
+    }
+
+    /* Global page padding */
+    .page-wrapper {
+        padding: 2rem 4%;
+    }
+
+    /* Header & Navigation */
+    header {
+        padding: 0.8rem 4%;
+        min-height: 62px;
+    }
+
+    .logo-container img {
+        height: 44px;
+    }
+
+    .logo-container span {
+        font-size: 1.2rem;
+    }
+
+    .header-actions {
+        gap: 0.5rem !important;
+    }
+
+    nav ul {
+        display: none !important;
+    }
+
+    .hamburger-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .login-button {
+        padding: 0.5rem 0.85rem;
+        font-size: 0.8rem;
+    }
+
+    #logout-link {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    .mobile-drawer {
+        width: 85%;
+        max-width: 320px;
+        padding: 5.5rem 1.8rem 2rem;
+    }
+
+    .mobile-drawer a {
+        padding: 0.75rem 0;
+        font-size: 1.1rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 105px 5% 40px;
+        min-height: auto;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.35rem;
+        line-height: 1.15;
+        margin-bottom: 1rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 1.8rem;
+    }
+
+    .hero .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .sub-hero {
+        padding: 5.5rem 4% 2.5rem;
+        text-align: center;
+    }
+
+    .sub-hero h1 {
+        font-size: 1.85rem;
+        line-height: 1.2;
+    }
+
+    .sub-hero p {
+        font-size: 0.95rem;
+    }
+
+    /* Event Planner & Multi-Step Wizard */
+    .wizard-box {
+        padding: 1.4rem 1rem;
+        margin: -20px auto 25px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    }
+
+    .progress-bar {
+        margin-bottom: 1.8rem;
+    }
+
+    .step-node {
+        width: 34px;
+        height: 34px;
+        font-size: 0.85rem;
+    }
+
+    .step-node.active {
+        transform: scale(1.1);
+    }
+
+    .wizard-step h2 {
+        font-size: 1.35rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+        margin-top: 1.2rem;
+    }
+
+    .full-width {
+        grid-column: auto !important;
+    }
+
+    /* Pitch Duration Slider on Mobile */
+    .pitch-slider {
+        margin: 1rem 0 0.4rem;
+        touch-action: pan-y;
+    }
+
+    .pitch-slider::-webkit-slider-thumb {
+        width: 30px;
+        height: 30px;
+    }
+
+    .pitch-slider::-moz-range-thumb {
+        width: 30px;
+        height: 30px;
+    }
+
+    .duration-presets {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+        padding-bottom: 0.4rem;
+        margin-top: 0.8rem;
+        scrollbar-width: none;
+    }
+
+    .duration-presets::-webkit-scrollbar {
+        display: none;
+    }
+
+    .duration-chip {
+        flex-shrink: 0;
+        padding: 0.45rem 0.85rem;
+        font-size: 0.8rem;
+        min-height: 38px;
+    }
+
+    .duration-pill-badge {
+        padding: 0.3rem 0.75rem;
+    }
+
+    .estimator-card {
+        padding: 1.25rem 1rem;
+        border-radius: 16px;
+        margin-top: 1.5rem;
+    }
+
+    .estimator-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+    }
+
+    .estimator-price {
+        font-size: 1.75rem;
+    }
+
+    .estimator-row {
+        font-size: 0.85rem;
+        padding: 0.45rem 0;
+    }
+
+    .wizard-nav {
+        display: flex;
+        gap: 0.8rem;
+        margin-top: 2rem;
+    }
+
+    .wizard-nav button {
+        flex: 1;
+        text-align: center;
+        padding: 0.9rem 1rem;
+        font-size: 0.88rem;
+        min-height: 48px;
+    }
+
+    /* Events Directory */
+    .directory-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 1.2rem 1rem;
+        border-radius: 16px;
+        margin-bottom: 1.5rem;
+    }
+
+    .search-box {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .search-box input {
+        font-size: 16px !important;
+        padding: 0.85rem 1rem 0.85rem 2.8rem;
+        min-height: 48px;
+    }
+
+    .filter-bar {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 0.5rem;
+        padding: 0.3rem 0 0.8rem;
+        margin-bottom: 1.5rem;
+        scrollbar-width: none;
+    }
+
+    .filter-bar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
+        padding: 0.6rem 1.1rem;
+        font-size: 0.82rem;
+        min-height: 42px;
+    }
+
+    .events-grid,
+    #event-directory {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Dashboard & Locker Room */
+    .dashboard-container {
+        grid-template-columns: 1fr;
+        padding: 5.5rem 3% 2.5rem;
+        gap: 1.5rem;
+    }
+
+    .dashboard-sidebar {
+        padding: 1.5rem 1.2rem;
+        border-radius: 18px;
+    }
+
+    .dashboard-content {
+        padding: 1.5rem 1rem;
+        border-radius: 18px;
+    }
+
+    .dashboard-content h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem;
+        margin-bottom: 1.8rem;
+    }
+
+    .stat-card {
+        padding: 1.2rem;
+        border-radius: 14px;
+    }
+
+    .membership-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .tier-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .booking-card {
+        padding: 1.25rem 1rem;
+    }
+
+    .booking-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .booking-actions button {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    /* Contact & About & Auth */
+    .contact-layout,
+    #about {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    .auth-wrapper {
+        padding: 1rem;
+        min-height: 100vh;
+    }
+
+    .auth-card {
+        padding: 2rem 1.2rem;
+        border-radius: 18px;
+    }
+
+    /* Interactive Modals */
+    .modal-overlay {
+        padding: 0.8rem;
+    }
+
+    .modal-card {
+        padding: 1.8rem 1.2rem;
+        border-radius: 18px;
+        max-height: 90vh;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .modal-header h3 {
+        font-size: 1.4rem;
+    }
+
+    .modal-close {
+        top: 1rem;
+        right: 1rem;
+        width: 36px;
+        height: 36px;
+    }
+
+    /* Toast System on Mobile */
+    #toast-container {
+        top: 70px;
+        left: 12px;
+        right: 12px;
+        width: auto;
+    }
+
+    .toast {
+        min-width: 0;
+        max-width: none;
+        width: 100%;
+        padding: 0.85rem 1.1rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* 3. SMALL SMARTPHONE BREAKPOINT (max-width: 480px) */
+@media (max-width: 480px) {
+    .logo-container span {
+        font-size: 1.1rem;
+    }
+
+    .user-profile .welcome-msg {
+        display: none !important;
+    }
+
+    .user-profile {
+        padding: 0.25rem;
+        background: transparent;
+    }
+
+    .user-profile img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .hero h1 {
+        font-size: 2.1rem;
+    }
+
+    .wizard-box {
+        padding: 1.2rem 0.85rem;
+    }
+
+    .step-node {
+        width: 30px;
+        height: 30px;
+        font-size: 0.78rem;
+    }
+
+    .progress-bar {
+        padding: 0 4px;
+    }
+
+    .estimator-price {
+        font-size: 1.6rem;
+    }
+
+    .ticket {
+        padding: 1.5rem 1rem;
+    }
+
+    .activity-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+}
+
+/* ===== Featured Tournament Card (Masters MT1000 Nairobi) ===== */
+.events-grid--featured {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tournament-card {
+    display: grid;
+    grid-template-columns: minmax(280px, 440px) minmax(0, 1fr);
+    align-items: stretch;
+    border-top: 5px solid var(--vibrant-yellow);
+}
+
+.tournament-card:hover {
+    transform: translateY(-4px);
+}
+
+.tournament-poster {
+    display: block;
+    background: var(--primary-green);
+    line-height: 0;
+}
+
+.tournament-poster img {
+    width: 100%;
+    height: auto; /* preserve original poster proportions, no cropping */
+    display: block;
+}
+
+.tournament-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.tournament-body h3 {
+    font-size: 2rem;
+    line-height: 1.1;
+    color: var(--primary-green);
+}
+
+.tournament-legs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+}
+
+.tournament-legs > div {
+    background: var(--primary-green);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 0.7rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.tournament-legs span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--vibrant-yellow);
+    font-weight: 800;
+}
+
+.tournament-legs strong {
+    font-size: 1.05rem;
+}
+
+.tournament-venue {
+    font-weight: 700;
+    color: var(--secondary-green);
+}
+
+.tournament-desc {
+    color: #555;
+    line-height: 1.6;
+}
+
+.tournament-detail-group h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--secondary-green);
+    margin-bottom: 0.5rem;
+}
+
+.chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.chip {
+    background: #eef5ee;
+    border: 1px solid #d6e6d6;
+    color: var(--primary-green);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 50px;
+}
+
+.fee-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+.fee-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    background: #f9fbf9;
+    border: 1px solid #e5eee5;
+    border-radius: 8px;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+.fee-list strong {
+    color: var(--primary-green);
+}
+
+.tournament-deadline {
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.tournament-register {
+    display: block;
+    text-align: center;
+    margin-top: auto;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .tournament-card {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .tournament-body {
+        padding: 1.3rem;
+    }
+
+    .tournament-body h3 {
+        font-size: 1.6rem;
+    }
+
+    .tournament-legs,
+    .fee-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Slightly tighter brand text so "WILD CARD TENNIS" fits beside logo on small screens */
+@media (max-width: 480px) {
+    .logo-container span {
+        font-size: 0.95rem;
+        letter-spacing: -0.5px;
+        white-space: nowrap;
+    }
+}
+
+/* Mobile header: keep brand + hamburger visible with the longer "WILD CARD TENNIS" text */
+@media (max-width: 560px) {
+    .header-actions > .cta-button {
+        display: none;
+    }
+
+    .logo-container img {
+        height: 38px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hamburger-btn {
+        flex-shrink: 0;
+        gap: 5px;
+    }
+
+    .header-actions .login-button svg {
+        display: none;
+    }
+
+    .header-actions .login-button {
+        padding: 0.45rem 0.8rem;
+    }
 }

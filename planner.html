@@ -41,7 +41,7 @@
         <div class="logo-container">
             <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
                 <img src="logo.png" alt="Wild Card Tennis Logo">
-                <span>WILD CARD</span>
+                <span>WILD CARD TENNIS</span>
             </a>
         </div>
         <nav>
@@ -83,7 +83,7 @@
     <aside class="mobile-drawer">
         <div class="logo-container">
             <img src="logo.png" alt="Logo">
-            <span>WILD CARD</span>
+            <span>WILD CARD TENNIS</span>
         </div>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -149,14 +149,6 @@
                             </select>
                         </div>
                         <div>
-                            <label for="p-hours">Estimated Duration</label>
-                            <select id="p-hours">
-                                <option value="4">Half Day (4 Hours)</option>
-                                <option value="8" selected>Full Day (8 Hours)</option>
-                                <option value="16">Weekend Series (2 Days / 16 Hours)</option>
-                            </select>
-                        </div>
-                        <div>
                             <label for="p-staff">Coaching & Referee Staff</label>
                             <select id="p-staff">
                                 <option value="none">Self-Officiated (No Staff)</option>
@@ -164,7 +156,40 @@
                                 <option value="elite">Elite ATP Master Staff (4+ Coaches & Physio)</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="full-width" style="margin-top: 0.5rem; background: #fafdfa; padding: 1.25rem 1.5rem; border-radius: 14px; border: 1px solid #e4eee5;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+                                <div>
+                                    <label for="p-hours" style="margin: 0; display: block;">Estimated Duration on Pitch / Court</label>
+                                    <span style="font-size: 0.8rem; color: #777;">Slide to set exact on-court gameplay & tournament hours</span>
+                                </div>
+                                <div class="duration-pill-badge">
+                                    <span id="hours-val" style="font-weight: 800; font-size: 1.2rem; color: var(--primary-green);">8</span>
+                                    <span style="font-size: 0.85rem; color: #555; font-weight: 700; margin-left: 3px;">Hours</span>
+                                    <span id="hours-tag" class="hours-tag-pill">Full Day</span>
+                                </div>
+                            </div>
+                            <div class="slider-container">
+                                <input type="range" id="p-hours" min="1" max="24" step="1" value="8" class="pitch-slider" aria-label="Estimated Duration on Pitch">
+                                <div class="slider-ticks">
+                                    <span>1h</span>
+                                    <span>4h</span>
+                                    <span>8h</span>
+                                    <span>12h</span>
+                                    <span>16h</span>
+                                    <span>20h</span>
+                                    <span>24h</span>
+                                </div>
+                            </div>
+                            <div class="duration-presets">
+                                <span style="font-size: 0.75rem; color: #888; font-weight: 700; text-transform: uppercase; align-self: center; margin-right: 0.3rem;">Presets:</span>
+                                <button type="button" class="duration-chip" data-hours="2">2h Clinic</button>
+                                <button type="button" class="duration-chip" data-hours="4">4h Half Day</button>
+                                <button type="button" class="duration-chip active" data-hours="8">8h Full Day</button>
+                                <button type="button" class="duration-chip" data-hours="16">16h 2-Day Series</button>
+                                <button type="button" class="duration-chip" data-hours="24">24h Facility Buyout</button>
+                            </div>
+                        </div>
+                        <div class="full-width">
                             <label for="p-catering">Hospitality & Catering</label>
                             <select id="p-catering">
                                 <option value="none">No catering</option>
@@ -219,7 +244,7 @@
                     <div class="estimator-header">
                         <div>
                             <span>Estimated Tactical Budget</span>
-                            <div class="estimator-price" id="calc-total">$1,850</div>
+                            <div class="estimator-price" id="calc-total">KSh 173,000</div>
                         </div>
                         <span style="color: var(--vibrant-yellow); font-weight: 700; font-size: 0.75rem;">LIVE ESTIMATOR</span>
                     </div>
@@ -240,7 +265,7 @@
     <footer>
         <div class="logo-container" style="justify-content: center; margin-bottom: 2rem;">
             <img src="logo.png" alt="Logo">
-            <span style="color: var(--vibrant-yellow);">WILD CARD</span>
+            <span style="color: var(--vibrant-yellow);">WILD CARD TENNIS</span>
         </div>
         <p>&copy; 2026 Wild Card Tennis. Elite Event Systems. All Rights Reserved.</p>
     </footer>

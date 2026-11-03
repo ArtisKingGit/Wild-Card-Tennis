@@ -139,8 +139,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             <h3 style="color: var(--primary-green); margin-bottom: 0.4rem;">${p.title}</h3>
                             <p style="font-size: 0.85rem; color: #666; margin-bottom: 0.3rem;">📅 Proposed Date: <strong>${p.date || 'TBD'}</strong></p>
                             <p style="font-size: 0.85rem; color: #666; margin-bottom: 0.3rem;">🏟️ Courts: <strong>${p.courts} Courts (${p.venue || 'Hard'})</strong></p>
+                            <p style="font-size: 0.85rem; color: #666; margin-bottom: 0.3rem;">⏱️ Pitch Duration: <strong>${p.hours || '8'} Hours</strong></p>
                             <p style="font-size: 0.85rem; color: #666; margin-bottom: 0.3rem;">👥 Players: <strong>${p.players}</strong></p>
-                            <p style="font-size: 0.95rem; color: var(--primary-green); font-weight: 800; margin-top: 0.8rem;">Est. Budget: ${p.estimatedBudget || '$0'}</p>
+                            <p style="font-size: 0.95rem; color: var(--primary-green); font-weight: 800; margin-top: 0.8rem;">Est. Budget: ${p.estimatedBudget || 'KSh 0'}</p>
                             <p style="font-size: 0.75rem; color: #999; margin-top: 0.3rem;">Ref: ${p.id}</p>
                         </div>
                         <div class="booking-actions">

@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wild Card Tennis - 10-Page Comprehensive Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --primary-green: #0d2b1a;
+    --secondary-green: #1b4d2e;
+    --accent-green: #2d6a4f;
+    --light-green: #f4f8f4;
+    --vibrant-yellow: #dfff00;
+    --gold-accent: #c5a059;
+    --dark-bg: #091a10;
+    --card-bg: #ffffff;
+    --text-dark: #1a2e22;
+    --text-muted: #526359;
+    --border-light: #e2ede5;
+}
+    @page {
+        size: 210mm 297mm;
+        margin: 0mm;
+    }
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    html, body {
+        margin: 0;
+        padding: 0;
+        background: #eef2ef;
+        font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        color: var(--text-dark);
+        line-height: 1.38;
+        font-size: 9pt;
+    }
+    .page {
+        width: 210mm;
+        height: 297mm;
+        max-height: 297mm;
+        margin: 0 auto 20px auto;
+        background: #ffffff;
+        position: relative;
+        overflow: hidden;
+        padding: 13mm 15mm 12mm 15mm;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-sizing: border-box;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        page-break-after: always;
+        break-after: page;
+    }
+    .page:last-of-type {
+        page-break-after: auto !important;
+        break-after: auto !important;
+    }
+    @media print {
+        body {
+            background: none;
+        }
+        .page {
+            margin: 0;
+            width: 210mm;
+            height: 297mm;
+            max-height: 297mm;
+            box-shadow: none;
+        }
+    }
+    /* Header & Footer Components on standard pages */
+    .doc-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid var(--border-light);
+        padding-bottom: 6px;
+        margin-bottom: 10px;
+    }
+    .doc-header .brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .doc-header img {
+        height: 20px;
+        width: auto;
+    }
+    .doc-header .brand-text {
+        font-weight: 800;
+        font-size: 10pt;
+        letter-spacing: 1.5px;
+        color: var(--primary-green);
+    }
+    .doc-header .doc-topic {
+        font-size: 7.5pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--secondary-green);
+    }
+    .doc-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1.5px solid var(--border-light);
+        padding-top: 6px;
+        margin-top: 8px;
+        font-size: 7.5pt;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+    .doc-footer .page-num {
+        font-weight: 800;
+        color: var(--primary-green);
+        background: var(--light-green);
+        padding: 2px 8px;
+        border-radius: 10px;
+        border: 1px solid var(--border-light);
+    }
+    h1.page-title {
+        font-size: 17pt;
+        font-weight: 800;
+        color: var(--primary-green);
+        line-height: 1.15;
+        margin-bottom: 3px;
+    }
+    .page-subtitle {
+        font-size: 8.5pt;
+        color: var(--secondary-green);
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    h2.section-heading {
+        font-size: 10.5pt;
+        font-weight: 800;
+        color: var(--primary-green);
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    h2.section-heading::before {
+        content: '';
+        display: inline-block;
+        width: 4px;
+        height: 12pt;
+        background: var(--vibrant-yellow);
+        border-radius: 2px;
+    }
+    p {
+        font-size: 8.4pt;
+        color: var(--text-muted);
+        line-height: 1.38;
+        margin-bottom: 6px;
+    }
+    .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    .grid-3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 9px;
+    }
+    .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+    .card {
+        background: #ffffff;
+        border: 1px solid var(--border-light);
+        border-radius: 8px;
+        padding: 9px 11px;
+        box-shadow: 0 1px 4px rgba(13, 43, 26, 0.04);
+    }
+    .card-dark {
+        background: var(--primary-green);
+        color: #ffffff;
+        border-radius: 8px;
+        padding: 10px 12px;
+    }
+    .card-dark p {
+        color: #d2e4d7;
+    }
+    .card-dark h3, .card-dark h4 {
+        color: #ffffff;
+    }
+    .card-tinted {
+        background: var(--light-green);
+        border: 1px solid #d9e8dd;
+        border-radius: 8px;
+        padding: 9px 11px;
+    }
+    .stat-box {
+        text-align: center;
+        background: var(--light-green);
+        border: 1px solid var(--border-light);
+        border-radius: 8px;
+        padding: 7px 5px;
+    }
+    .stat-box .number {
+        font-size: 15pt;
+        font-weight: 900;
+        color: var(--primary-green);
+        line-height: 1;
+        margin-bottom: 2px;
+    }
+    .stat-box .label {
+        font-size: 7pt;
+        font-weight: 700;
+        color: var(--secondary-green);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .badge {
+        display: inline-block;
+        font-size: 6.5pt;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 2px 6px;
+        border-radius: 10px;
+        background: var(--light-green);
+        color: var(--secondary-green);
+        border: 1px solid var(--border-light);
+    }
+    .badge-yellow {
+        background: #f4ffb3;
+        color: #4b5a00;
+        border-color: #dfff00;
+    }
+    .badge-dark {
+        background: var(--primary-green);
+        color: var(--vibrant-yellow);
+    }
+    table.portfolio-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 7.8pt;
+        margin: 5px 0 8px 0;
+    }
+    table.portfolio-table th {
+        background: var(--primary-green);
+        color: #ffffff;
+        text-align: left;
+        padding: 5px 7px;
+        font-weight: 700;
+        font-size: 7.2pt;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    table.portfolio-table td {
+        padding: 4.8px 7px;
+        border-bottom: 1px solid var(--border-light);
+        color: var(--text-dark);
+        vertical-align: top;
+    }
+    table.portfolio-table tr:nth-child(even) {
+        background: var(--light-green);
+    }
+    ul.bullet-list {
+        list-style: none;
+        margin: 3px 0 6px 0;
+    }
+    ul.bullet-list li {
+        position: relative;
+        padding-left: 12px;
+        font-size: 8.2pt;
+        color: var(--text-muted);
+        margin-bottom: 3px;
+        line-height: 1.32;
+    }
+    ul.bullet-list li::before {
+        content: '�';
+        position: absolute;
+        left: 0;
+        font-size: 5.5pt;
+        color: var(--secondary-green);
+        top: 2px;
+    }
+    .cover-page {
+        background: radial-gradient(circle at 80% 20%, #154528 0%, #0d2b1a 60%, #07160d 100%);
+        color: #ffffff;
+        padding: 16mm 16mm 14mm 16mm;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .cover-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .cover-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .cover-brand img {
+        width: 44px;
+        height: 44px;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    }
+    .cover-brand-title {
+        font-size: 17pt;
+        font-weight: 900;
+        letter-spacing: 3px;
+        color: var(--vibrant-yellow);
+    }
+    .cover-brand-sub {
+        font-size: 7.8pt;
+        font-weight: 600;
+        color: #a8d5b8;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+    }
+    .cover-hero-box {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(223, 255, 0, 0.25);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 14px 0;
+    }
+    .cover-tagline {
+        font-size: 9pt;
+        font-weight: 800;
+        letter-spacing: 3px;
+        color: var(--vibrant-yellow);
+        text-transform: uppercase;
+        margin-bottom: 6px;
+    }
+    .cover-main-title {
+        font-size: 25pt;
+        font-weight: 900;
+        line-height: 1.1;
+        color: #ffffff;
+        margin-bottom: 10px;
+    }
+    .cover-main-title span {
+        color: var(--vibrant-yellow);
+    }
+    .cover-desc {
+        font-size: 9.5pt;
+        color: #cfe1d5;
+        line-height: 1.5;
+        max-width: 95%;
+    }
+    .cover-toc-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+        margin-top: 12px;
+    }
+    .cover-toc-item {
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 6px;
+        padding: 5px 9px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 8pt;
+        color: #e2f0e6;
+    }
+    .cover-toc-item strong {
+        color: var(--vibrant-yellow);
+        font-size: 8.5pt;
+    }
+    .cover-meta {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        border-top: 1px solid rgba(223, 255, 0, 0.2);
+        padding-top: 12px;
+    }
+    .cover-meta-item strong {
+        display: block;
+        font-size: 7.2pt;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--vibrant-yellow);
+        margin-bottom: 2px;
+    }
+    .cover-meta-item span {
+        font-size: 8.2pt;
+        color: #ffffff;
+        font-weight: 600;
+    }
+    .timeline-item {
+        position: relative;
+        padding-left: 16px;
+        margin-bottom: 8px;
+        border-left: 2px solid var(--secondary-green);
+    }
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -5px;
+        top: 2px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--vibrant-yellow);
+        border: 2px solid var(--primary-green);
+    }
+    .timeline-year {
+        font-weight: 800;
+        font-size: 8.2pt;
+        color: var(--secondary-green);
+    }
+    .timeline-title {
+        font-weight: 700;
+        font-size: 8.5pt;
+        color: var(--primary-green);
+    }
+    .timeline-desc {
+        font-size: 7.6pt;
+        color: var(--text-muted);
+        line-height: 1.32;
+    }
+</style>
+</head>
+<body>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 1: COVER & EXECUTIVE OVERVIEW                                  -->
+    <!-- =================================================================== -->
+    <div class="page cover-page">
+        <div class="cover-top">
+            <div class="cover-brand">
+                <img src="logo.png" alt="Wild Card Tennis">
+                <div>
+                    <div class="cover-brand-title">WILD CARD</div>
+                    <div class="cover-brand-sub">Elite Tennis Events & Logistics</div>
+                </div>
+            </div>
+            <div style="text-align: right;">
+                <span class="badge badge-yellow" style="font-size: 8pt; padding: 4px 10px;">Executive Portfolio 2026</span>
+            </div>
+        </div>
+
+        <div class="cover-hero-box">
+            <div class="cover-tagline">Comprehensive Strategic Dossier</div>
+            <div class="cover-main-title">Redefining the <span>Tennis Experience</span>.</div>
+            <p class="cover-desc">
+                An exhaustive 10-page master portfolio showcasing the journey, tournament operations, masterclass coaching clinics, strategic algorithmic event planning, digital player ecosystem, and commercial infrastructure of Wild Card Tennis.
+            </p>
+
+            <div style="margin-top: 14px;">
+                <div style="font-size: 8pt; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--vibrant-yellow); margin-bottom: 6px;">
+                    Dossier Table of Contents & Structure
+                </div>
+                <div class="cover-toc-grid">
+                    <div class="cover-toc-item"><strong>01.</strong> Title & Executive Cover</div>
+                    <div class="cover-toc-item"><strong>02.</strong> Journey, Heritage & Growth</div>
+                    <div class="cover-toc-item"><strong>03.</strong> Skills & Core Competencies</div>
+                    <div class="cover-toc-item"><strong>04.</strong> Tournament & Event Operations</div>
+                    <div class="cover-toc-item"><strong>05.</strong> Coaching & Tactical Clinics</div>
+                    <div class="cover-toc-item"><strong>06.</strong> Interactive Planner & Budgeting</div>
+                    <div class="cover-toc-item"><strong>07.</strong> Member Dashboard & Locker Room</div>
+                    <div class="cover-toc-item"><strong>08.</strong> Membership & Commercial Model</div>
+                    <div class="cover-toc-item"><strong>09.</strong> Case Studies & Quality Ops</div>
+                    <div class="cover-toc-item"><strong>10.</strong> Tech Stack, Roadmap & Directory</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cover-meta">
+            <div class="cover-meta-item">
+                <strong>Headquarters</strong>
+                <span>Nairobi Club Pavilion, Kenya</span>
+            </div>
+            <div class="cover-meta-item">
+                <strong>Director Inquiries</strong>
+                <span>rogoij@gmail.com</span>
+            </div>
+            <div class="cover-meta-item">
+                <strong>Direct Dispatch</strong>
+                <span>+254 722 102 870</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 2: THE WILD CARD JOURNEY & HERITAGE                            -->
+    <!-- =================================================================== -->
+    <div class="page">
+        <div>
+            <div class="doc-header">
+                <div class="brand">
+                    <img src="logo.png" alt="Logo">
+                    <span class="brand-text">WILD CARD TENNIS</span>
+                </div>
+                <div class="doc-topic">Section 01 // Journey & Brand Heritage</div>
+            </div>
+
+            <h1 class="page-title">The Wild Card Journey</h1>
+            <div class="page-subtitle">From Grassroots Vision to World-Class Tournament & Coaching Infrastructure</div>
+
+            <p>
+                Wild Card Tennis was founded on the fundamental principle that every aspiring player, collegiate competitor, and corporate organizer deserves an authentic Grand-Slam caliber environment. In traditional tennis, a <em>"Wild Card"</em> represents opportunity—a hard-earned gateway for unseeded contenders to prove their mettle on the biggest stages. We adopted this name to embody our mission: unlocking elite potential through obsessive logistical perfection and certified coaching.
+            </p>
+
+            <div class="grid-4" style="margin: 10px 0 14px 0;">
+                <div class="stat-box">
+                    <div class="number">50+</div>
+                    <div class="label">Tournaments Hosted</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">1,200+</div>
+                    <div class="label">Active Competitors</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">100%</div>
+                    <div class="label">ATP Precision Standards</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">98.4%</div>
+                    <div class="label">Player Satisfaction</div>
+                </div>
+            </div>
+
+            <h2 class="section-heading">Chronological Growth Timeline (2022 – 2026)</h2>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2022 — Foundation & Nairobi Pavilion Launch</div>
+                <div class="timeline-title">Establishing the Baseline Standards</div>
+                <div class="timeline-desc">Formed by certified tournament directors and ATP coaches to eliminate logistical bottlenecks in regional tournaments. Standardized court resurfacing, calibrated electronic stringing machines, and introduced unified player scheduling.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2023 — Junior Circuit & Coaching Academy Expansion</div>
+                <div class="timeline-title">Empowering the Next Generation of Competitors</div>
+                <div class="timeline-desc">Inaugurated the Wild Card Junior Open (Under-18), integrating college recruitment scouts and high-performance video analysis. Hosted over 300 junior matches across hard and clay courts.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2024 — Corporate Retreats & Pro-Am Invitational Series</div>
+                <div class="timeline-title">Elevating Corporate & Executive Sports Hospitality</div>
+                <div class="timeline-desc">Launched bespoke corporate championships combining round-robin matchplay with luxury VIP hospitality, pro exhibition showcases, and calibrated networking environments for multinational organizations.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2025 — Proprietary Digital Architecture & Cost Engine</div>
+                <div class="timeline-title">Algorithmic Event Planning & Player Locker Room</div>
+                <div class="timeline-desc">Engineered the interactive 4-step web planner, live pitch duration sliders, and real-time budgeting algorithms, enabling clients to configure custom tournaments and receive instant itemized quotes in seconds.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2026 — Grand Slam Warmup Series & International Masterclasses</div>
+                <div class="timeline-title">Global Standards on African Courts</div>
+                <div class="timeline-desc">Partnered with touring professionals to launch specialized masterclasses in serve-and-volley tactics, red clay slide mechanics, and mental fortitude under high-pressure breakpoint scenarios.</div>
+            </div>
+
+            <div class="card-tinted" style="margin-top: 8px;">
+                <div style="font-size: 8pt; font-weight: 800; color: var(--primary-green); text-transform: uppercase; margin-bottom: 2px;">Core Brand Philosophy</div>
+                <p style="margin: 0; font-size: 8.2pt;">"Precision is the difference between a casual hit and a championship match. We obsess over court moisture, ball temperature, string tension, and umpire rigor so players can achieve peak performance."</p>
+            </div>
+        </div>
+
+        <div class="doc-footer">
+            <span>Wild Card Tennis // Executive Portfolio</span>
+            <span class="page-num">Page 02</span>
+            <span>Confidential & Proprietary</span>
+        </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 3: SKILLS & CORE COMPETENCIES                                  -->
+    <!-- =================================================================== -->
+    <div class="page">
+        <div>
+            <div class="doc-header">
+                <div class="brand">
+                    <img src="logo.png" alt="Logo">
+                    <span class="brand-text">WILD CARD TENNIS</span>
+                </div>
+                <div class="doc-topic">Section 02 // Core Competencies & Skills</div>
+            </div>
+
+            <h1 class="page-title">Skills & Operational Competencies</h1>
+            <div class="page-subtitle">Four Interlocking Pillars Powering Elite Tennis Execution</div>
+
+            <p>
+                Delivering an authentic tournament and masterclass environment requires a sophisticated blend of court engineering, certified officiating, sports science biomechanics, and scalable digital software.
+            </p>
+
+            <div class="grid-2" style="margin-top: 8px;">
+                <div class="card">
+                    <span class="badge badge-dark" style="margin-bottom: 6px;">Pillar 01</span>
+                    <h3 style="font-size: 10pt; color: var(--primary-green); margin-bottom: 4px;">Tournament Architecture & Officiating</h3>
+                    <p style="font-size: 8.2pt; margin-bottom: 6px;">End-to-end tournament sanctioning and draw mechanics adhering strictly to ITF/ATP guidelines.</p>
+                    <ul class="bullet-list">
+                        <li><strong>Draw Formats:</strong> Knockout brackets, compass draws, round-robin pools, and staggered consolation ladders.</li>
+                        <li><strong>Seeding & Rankings:</strong> UTR/ITF integrated ranking calculation and automated seed protection.</li>
+                        <li><strong>Certified Umpires:</strong> ITF White/Bronze badge chair umpires, roving line judges, and code-of-conduct marshals.</li>
+                        <li><strong>Live Scoring Systems:</strong> Instant court-side tablet scoreboards syncing directly to the web portal.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <span class="badge badge-dark" style="margin-bottom: 6px;">Pillar 02</span>
+                    <h3 style="font-size: 10pt; color: var(--primary-green); margin-bottom: 4px;">Court Surface Engineering & Maintenance</h3>
+                    <p style="font-size: 8.2pt; margin-bottom: 6px;">Specialized agronomy and physical surface conditioning tailored for true ball bounce and traction.</p>
+                    <ul class="bullet-list">
+                        <li><strong>Plexicushion Hard Courts:</strong> Multi-layered acrylic shock-absorption surfaces calibrated for true bounce speed (ITF Medium-Fast).</li>
+                        <li><strong>Roland Garros Red Clay:</strong> Daily laser-grading, calcium chloride moisture binding, and line sweeping.</li>
+                        <li><strong>Natural Lawn Grass:</strong> Precision 6mm turf cutting, sub-surface drainage, and turf aeration.</li>
+                        <li><strong>Floodlight Luminescence:</strong> 750+ lux flicker-free LED arrays configured for broadcast & twilight matches.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid-2" style="margin-top: 10px;">
+                <div class="card">
+                    <span class="badge badge-dark" style="margin-bottom: 6px;">Pillar 03</span>
+                    <h3 style="font-size: 10pt; color: var(--primary-green); margin-bottom: 4px;">High-Performance Coaching & Biomechanics</h3>
+                    <p style="font-size: 8.2pt; margin-bottom: 6px;">Data-driven athletic training focused on stroke mechanics, kinetic energy transfer, and stamina.</p>
+                    <ul class="bullet-list">
+                        <li><strong>Kinetic Chain Analysis:</strong> High-speed 240fps camera tracking of serve toss, shoulder rotation, and pronation.</li>
+                        <li><strong>Footwork Geometry:</strong> Split-step timing, open-stance load balance, and clay court slide deceleration.</li>
+                        <li><strong>Mental Toughness Frameworks:</strong> Pre-serve routines, breakpoint management, and emotional composure under pressure.</li>
+                        <li><strong>Physiotherapy & Recovery:</strong> Match-ready dynamic warmups, ice bath protocols, and rotator cuff preservation.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <span class="badge badge-dark" style="margin-bottom: 6px;">Pillar 04</span>
+                    <h3 style="font-size: 10pt; color: var(--primary-green); margin-bottom: 4px;">Digital Platform Engineering & Software</h3>
+                    <p style="font-size: 8.2pt; margin-bottom: 6px;">Modern bespoke web engineering providing an interactive, frictionless experience for athletes and directors.</p>
+                    <ul class="bullet-list">
+                        <li><strong>Dynamic Planning Wizard:</strong> 4-step interactive event architect with real-time budgetary recalculation.</li>
+                        <li><strong>Pitch Duration Engine:</strong> Continuous 1–24 hour interactive slider with instant facility rate multiplier.</li>
+                        <li><strong>Player Locker Room:</strong> Member dashboard persisting stats, equipment specs, and pass tokens.</li>
+                        <li><strong>Cross-Platform Compatibility:</strong> Zero-dependency vanilla performance, responsive drawer nav, and toast notifications.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="doc-footer">
+            <span>Wild Card Tennis // Executive Portfolio</span>
+            <span class="page-num">Page 03</span>
+            <span>Confidential & Proprietary</span>
+        </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 4: SIGNATURE TOURNAMENTS & EVENT OPERATIONS                    -->
+    <!-- =================================================================== -->
+    <div class="page">
+        <div>
+            <div class="doc-header">
+                <div class="brand">
+                    <img src="logo.png" alt="Logo">
+                    <span class="brand-text">WILD CARD TENNIS</span>
+                </div>
+                <div class="doc-topic">Section 03 // Signature Tournaments & Events</div>
+            </div>
+
+            <h1 class="page-title">Tournament & Event Operations</h1>
+            <div class="page-subtitle">Flagship Tournaments, Elite Invitationals & Social Galas</div>
+
+            <p>
+                Wild Card Tennis designs, executes, and sanctions a diverse annual calendar of competitive tournaments and exhibitions tailored for every skill level from rising junior champions to corporate executives.
+            </p>
+
+            <table class="portfolio-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Event Title</th>
+                        <th style="width: 15%;">Category</th>
+                        <th style="width: 18%;">Target Dates</th>
+                        <th style="width: 22%;">Draw / Capacity</th>
+                        <th style="width: 20%;">Surface</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Wimbledon Warmup</strong></td>
+                        <td><span class="badge badge-dark">Grand Slam Series</span></td>
+                        <td>May 15–20, 2026</td>
+                        <td>32 Players / 8 Seeds</td>
+                        <td>Lawn Grass / Hard</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Service & Volley Masterclass</strong></td>
+                        <td><span class="badge">Clinic</span></td>
+                        <td>May 25, 2026</td>
+                        <td>12 Competitors</td>
+                        <td>Plexicushion Hard</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sunset Doubles Gala</strong></td>
+                        <td><span class="badge badge-yellow">Social Gala</span></td>
+                        <td>June 01, 2026</td>
+                        <td>24 Doubles Pairs (48 Pax)</td>
+                        <td>Championship Hard</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wild Card Junior Open</strong></td>
+                        <td><span class="badge badge-dark">Junior Circuit</span></td>
+                        <td>June 10–14, 2026</td>
+                        <td>64 Juniors (U18 / U14)</td>
+                        <td>Red Clay & Hard</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Footwork & Agility Drills</strong></td>
+                        <td><span class="badge">Clinic</span></td>
+                        <td>June 18, 2026</td>
+                        <td>10 Players / Intensive</td>
+                        <td>Red Clay</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Midsummer Pro-Am Challenge</strong></td>
+                        <td><span class="badge badge-yellow">Pro-Am Invitational</span></td>
+                        <td>July 04, 2026</td>
+                        <td>16 Pro-Am Teams</td>
+                        <td>Plexicushion Hard</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 class="section-heading" style="margin-top: 8px;">Detailed Operational Case Profiles</h2>
+
+            <div class="grid-2">
+                <div class="card-tinted">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                        <strong style="color: var(--primary-green); font-size: 9.5pt;">Wimbledon Warmup Grand Slam Series</strong>
+                        <span class="badge badge-dark">Flagship</span>
+                    </div>
+                    <p style="font-size: 8.2pt; margin-bottom: 6px;">
+                        The pinnacle grass-court tactical preparation camp and tournament in the region. Designed for touring competitors and premier division athletes looking to adapt their footwork to low-skid surfaces.
+                    </p>
+                    <ul class="bullet-list" style="font-size: 8pt;">
+                        <li><strong>Match Format:</strong> Best of 3 tiebreak sets with official ITF chair umpires.</li>
+                        <li><strong>Hospitality:</strong> Player hydration suite, organic nutrition buffet, and physio stations.</li>
+                        <li><strong>Gear Support:</strong> On-site 20-minute electronic stringing turnaround service.</li>
+                    </ul>
+                </div>
+
+                <div class="card-tinted">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                        <strong style="color: var(--primary-green); font-size: 9.5pt;">Sunset Doubles Gala & Exhibition</strong>
+                        <span class="badge badge-yellow">Exhibition</span>
+                    </div>
+                    <p style="font-size: 8.2pt; margin-bottom: 6px;">
+                        Where competitive tennis meets premier networking. High-octane twilight exhibition matches under the floodlights followed by a gala dinner, cocktail reception, and live charity auction.
+                    </p>
+                    <ul class="bullet-list" style="font-size: 8pt;">
+                        <li><strong>Format:</strong> Fast4 format doubles showdown featuring former national champions.</li>
+                        <li><strong>Entertainment:</strong> Acoustic lounge band, open bar, and VIP viewing pavilion.</li>
+                        <li><strong>Corporate Synergy:</strong> Co-branded court signage and sponsor lounge booths.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="doc-footer">
+            <span>Wild Card Tennis // Executive Portfolio</span>
+            <span class="page-num">Page 04</span>
+            <span>Confidential & Proprietary</span>
+        </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 5: COACHING & TACTICAL CLINICS                                 -->
+    <!-- =================================================================== -->
+    <div class="page">
+        <div>
+            <div class="doc-header">
+                <div class="brand">
+                    <img src="logo.png" alt="Logo">
+                    <span class="brand-text">WILD CARD TENNIS</span>
+                </div>
+                <div class="doc-topic">Section 04 // High-Performance Coaching</div>
+            </div>
+
+            <h1 class="page-title">High-Performance Masterclasses</h1>
+            <div class="page-subtitle">Tactical Curriculums, Biomechanical Precision & Mental Conditioning</div>
+
+            <p>
+                Led by certified ATP Master coaches and former Davis Cup players, our intensive clinics break down complex tennis stroke mechanics into repeatable, biomechanically sound muscle memory.
+            </p>
+
+            <div class="grid-3" style="margin: 10px 0;">
+                <div class="card">
+                    <div style="text-align: center; margin-bottom: 6px;">
+                        <span class="badge badge-dark">Masterclass 01</span>
+                        <h3 style="font-size: 9.5pt; color: var(--primary-green); margin-top: 4px;">Service & Volley Dynamics</h3>
+                    </div>
+                    <p style="font-size: 8pt; margin-bottom: 6px;">Master the lost art of attacking the net and controlling the baseline through authoritative serving.</p>
+                    <ul class="bullet-list" style="font-size: 7.8pt;">
+                        <li><strong>Serve Kinetic Chain:</strong> Leg drive, trophy pose, core coiling, and explosive pronation.</li>
+                        <li><strong>Spin Variations:</strong> Heavy topspin kick serves (4,500+ RPM) and pinpoint slice out-wide.</li>
+                        <li><strong>First-Volley Footwork:</strong> Transition split-step positioning inside the service line.</li>
+                        <li><strong>Overhead Putaways:</strong> Scissor-kick footwork and angled angle placements.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div style="text-align: center; margin-bottom: 6px;">
+                        <span class="badge badge-dark">Masterclass 02</span>
+                        <h3 style="font-size: 9.5pt; color: var(--primary-green); margin-top: 4px;">Clay Slide & Agility Intensive</h3>
+                    </div>
+                    <p style="font-size: 8pt; margin-bottom: 6px;">Conquer red clay movement with specialized sliding, balance retention, and baseline recovery drills.</p>
+                    <ul class="bullet-list" style="font-size: 7.8pt;">
+                        <li><strong>Slide Timing:</strong> Initiating the slide 2 steps prior to ball contact for balanced striking.</li>
+                        <li><strong>Deceleration Physics:</strong> Weight distribution on the inside edge of the sliding shoe.</li>
+                        <li><strong>Recovery Push-off:</strong> Explosive hip torque to return instantly to center court.</li>
+                        <li><strong>Heavy Topspin Depth:</strong> Hitting 3 feet over the net for deep, high-bouncing trajectory.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div style="text-align: center; margin-bottom: 6px;">
+                        <span class="badge badge-dark">Masterclass 03</span>
+                        <h3 style="font-size: 9.5pt; color: var(--primary-green); margin-top: 4px;">Mental Fortitude & Match Tactics</h3>
+                    </div>
+                    <p style="font-size: 8pt; margin-bottom: 6px;">Transform your mental approach to clutch points, tiebreakers, and high-pressure tournament situations.</p>
+                    <ul class="bullet-list" style="font-size: 7.8pt;">
+                        <li><strong>Pre-Point Rituals:</strong> Heart rate regulation, 15-second breathing cycles, and string alignment.</li>
+                        <li><strong>Breakpoint Strategy:</strong> High-percentage targets and eliminating unforced errors.</li>
+                        <li><strong>Opponent Scouting:</strong> Identifying backhand weaknesses and exploiting depth vulnerabilities.</li>
+                        <li><strong>Tiebreak Blueprint:</strong> First-serve consistency and aggressive second-shot aggression.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 class="section-heading">Professional Gear & Equipment Standards</h2>
+
+            <div class="card-tinted">
+                <div class="grid-2">
+                    <div>
+                        <strong style="color: var(--primary-green); font-size: 8.8pt;">Electronic Stringing Tension Lab</strong>
+                        <p style="font-size: 8pt; margin-top: 2px;">
+                            Calibrated on Wilson Baiardo and Babolat Sensor Dual electronic constant-pull machines with 0.2 lb precision. Full selection of Luxilon ALU Power, Babolat RPM Blast, and natural gut hybrids.
+                        </p>
+                    </div>
+                    <div>
+                        <strong style="color: var(--primary-green); font-size: 8.8pt;">Championship Pressurized Balls</strong>
+                        <p style="font-size: 8pt; margin-top: 2px;">
+                            Strict adherence to ball rotation protocols: new cans opened every 9 games for official tournaments, and pressurized training balls maintained at 14 psi for masterclasses.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="doc-footer">
+            <span>Wild Card Tennis // Executive Portfolio</span>
+            <span class="page-num">Page 05</span>
+            <span>Confidential & Proprietary</span>
+        </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 6: INTERACTIVE EVENT PLANNER & BUDGETING                       -->
+    <!-- =================================================================== -->
+    <div class="page">
+        <div>
+            <div class="doc-header">
+                <div class="brand">
+                    <img src="logo.png" alt="Logo">
+                    <span class="brand-text">WILD CARD TENNIS</span>
+                </div>
+                <div class="doc-topic">Section 05 // Strategic Event Planner & Costing</div>
+            </div>
+
+            <h1 class="page-title">Interactive Event Planner & Cost Engine</h1>
+            <div class="page-subtitle">Algorithmic Budgeting, Live Duration Sliders & Bespoke Event Architecture</div>
+
+            <p>
+                A core technological innovation of Wild Card Tennis is our proprietary 4-step event planning wizard. Clients can model court requirements, professional staffing tiers, on-court duration, catering, and surface logistics to receive an instant, binding tactical quotation.
+            </p>
+
+            <div class="grid-4" style="margin: 8px 0 12px 0;">
+                <div class="card" style="text-align: center;">
+                    <span class="badge badge-dark">Step 01</span>
+                    <h4 style="font-size: 8.5pt; color: var(--primary-green); margin: 4px 0 2px 0;">Event Identity</h4>
+                    <p style="font-size: 7.5pt; margin: 0;">Name, category (Tournament, Clinic, Gala), and player sizing (2–256).</p>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <span class="badge badge-dark">Step 02</span>
+                    <h4 style="font-size: 8.5pt; color: var(--primary-green); margin: 4px 0 2px 0;">Facilities & Staff</h4>
+                    <p style="font-size: 7.5pt; margin: 0;">Dedicated courts (2, 4, 8), ATP staff tier, and 1–24h pitch duration slider.</p>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <span class="badge badge-dark">Step 03</span>
+                    <h4 style="font-size: 8.5pt; color: var(--primary-green); margin: 4px 0 2px 0;">Surface & Logistics</h4>
+                    <p style="font-size: 7.5pt; margin: 0;">Plexicushion, Red Clay, or Lawn Grass surface prep & target date.</p>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <span class="badge badge-yellow">Step 04</span>
+                    <h4 style="font-size: 8.5pt; color: var(--primary-green); margin: 4px 0 2px 0;">Live Tactical Quote</h4>
+                    <p style="font-size: 7.5pt; margin: 0;">Dynamic price generation, PDF proposal dispatch, and dashboard sync.</p>
+                </div>
+            </div>
+
+            <h2 class="section-heading">Mathematical Cost Calculation Architecture</h2>
+
+            <table class="portfolio-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Logistical Parameter</th>
+                        <th style="width: 35%;">Configuration Options</th>
+                        <th style="width: 40%;">Pricing Algorithm / Standard Rates (KSh)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Dedicated Court Allocation</strong></td>
+                        <td>2 Courts (Up to 12 players)<br>4 Courts (Up to 24 players)<br>8+ Courts (Full Facility Buyout)</td>
+                        <td>KSh 6,500 / hour<br>KSh 12,000 / hour<br>KSh 22,000 / hour</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Duration on Pitch (Slider)</strong></td>
+                        <td>1 to 24 continuous hours<br><em>Presets: 2h Clinic, 4h Half Day, 8h Full, 16h 2-Day, 24h Buyout</em></td>
+                        <td><code>Court Total = Hourly Rate &times; Selected Hours</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Coaching & Officiating Staff</strong></td>
+                        <td>Self-Officiated (No Staff)<br>Pro Staff (2 Certified Coaches / Umpire)<br>Elite ATP Master Staff (4+ Coaches & Physio)</td>
+                        <td>KSh 0 flat<br>KSh 45,000 flat<br>KSh 110,000 flat</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hospitality & Catering</strong></td>
+                        <td>No Catering<br>Hydration & Energy Lounge<br>Full VIP Buffet, BBQ & Player Lounge</td>
+                        <td>KSh 0 / player<br>KSh 2,000 / player<br>KSh 6,000 / player</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Surface Prep Premium</strong></td>
+                        <td>Championship Hard Court (Standard)<br>Authentic Red Clay (Roland Garros standard)<br>Exclusive Natural Lawn Grass Courts</td>
+                        <td>KSh 0 included<br>KSh 35,000 preparation fee<br>KSh 80,000 premium turf fee</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="card-dark" style="margin-top: 6px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <span style="font-size: 7.5pt; font-weight: 700; color: var(--vibrant-yellow); text-transform: uppercase;">Real-World Quotation Example: 16-Player Full-Day Invitational</span>
+                        <div style="font-size: 8.5pt; color: #ffffff; margin-top: 2px;">
+                            4 Courts &times; 8 Hours (KSh 96k) + Pro Staff (KSh 45k) + Hydration Lounge (KSh 32k) = <strong>KSh 173,000 Total</strong>
+                        </div>
+                    </div>
+                    <span class="badge badge-yellow" style="font-size: 8.5pt; padding: 4px 10px;">Instant Online Approval</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="doc-footer">
+            <span>Wild Card Tennis // Executive Portfolio</span>
+            <span class="page-num">Page 06</span>
+            <span>Confidential & Proprietary</span>
+        </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 7: MEMBER DASHBOARD & DIGITAL LOCKER ROOM                      -->
+    <!-- =================================================================== -->
+    <div class="page">
+        <div>
+            <div class="doc-header">
+                <div class="brand">
+                    <img src="logo.png" alt="Logo">
+                    <span class="brand-text">WILD CARD TENNIS</span>
+                </div>
+                <div class="doc-topic">Section 06 // Player Portal & Locker Room</div>
+            </div>
+
+            <h1 class="page-title">Digital Locker Room & Member Portal</h1>
+            <div class="page-subtitle">Personalized Player Ecosystem, Tournament Passes & Real-Time Stats</div>
+
+            <p>
+                Athletes and tournament organizers manage their entire tennis profile through the integrated <em>"Locker Room"</em> dashboard. From live tournament passes and racket gear calibrations to custom event proposals, every interaction is synchronized in real time.
+            </p>
+
+            <div class="grid-2" style="margin-top: 8px;">
+                <div class="card">
+                    <h3 style="font-size: 9.5pt; color: var(--primary-green); margin-bottom: 4px;">Player Profile & Gear Customization</h3>
+                    <p style="font-size: 8pt; margin-bottom: 6px;">Granular player data enables tournament directors to construct perfectly balanced seedings and round-robin pools.</p>
+                    <ul class="bullet-list" style="font-size: 7.8pt;">
+                        <li><strong>NTRP / Skill Division:</strong> Beginner (1.5–2.5), Intermediate (3.0–4.0), Advanced (4.5–5.0), and Open/Pro (5.5+).</li>
+                        <li><strong>Dominant Hand & Stance:</strong> Right-handed (Single/Two-handed Backhand) or Southpaw Left-handed.</li>
+                        <li><strong>Surface Preference:</strong> Calibrates court allocations for Hard, Clay, or Lawn Grass tournaments.</li>
+                        <li><strong>Racket Specs & Tension:</strong> Logs preferred frame models (e.g. Wilson Blade 98, Babolat Pure Aero) and string tensions.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 style="font-size: 9.5pt; color: var(--primary-green); margin-bottom: 4px;">Tournament Pass & Proposal Vault</h3>
+                    <p style="font-size: 8pt; margin-bottom: 6px;">Centralized record management for registrations and submitted event proposals.</p>
+                    <ul class="bullet-list" style="font-size: 7.8pt;">
+                        <li><strong>Active Digital Passes:</strong> Unique pass ID generation (e.g. <code>BK-1771239</code>) with QR check-in readiness.</li>
+                        <li><strong>Proposal Tracking:</strong> Real-time status indicators (<code>Under Review</code>, <code>Confirmed</code>, <code>Active</code>).</li>
+                        <li><strong>Player Division Passes:</strong> Single passes, doubles partner allocation, and 4-player team slots.</li>
+                        <li><strong>One-Click Cancellation:</strong> Automated capacity restyling and spot reassignment.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 class="section-heading" style="margin-top: 10px;">Technical Data Architecture & State Management</h2>
+
+            <table class="portfolio-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Data Entity</th>
+                        <th style="width: 40%;">Stored Schema & Fields</th>
+                        <th style="width: 35%;">Sync & Lifecycle Mechanism</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Player Bookings</strong></td>
+                        <td><code>eventId, eventTitle, eventType, eventDate, playerName, playerEmail, division, passes, notes, status</code></td>
+                        <td>Stored in <code>wildcard_bookings</code> local cache; synced with Firebase auth session upon login.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Event Proposals</strong></td>
+                        <td><code>title, type, players, courts, hours, staff, catering, date, venue, email, notes, estimatedBudget, status</code></td>
+                        <td>Stored in <code>wildcard_plans</code>; automatically renders in user dashboard under Custom Proposals tab.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tennis Preferences</strong></td>
+                        <td><code>skillDivision, dominantHand, favoriteSurface, racketModel</code></td>
+                        <td>Stored in <code>wildcard_tennis_prefs</code>; auto-fills event registrations and tactical clinic entries.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="card-tinted" style="margin-top: 6px;">
+                <strong style="color: var(--primary-green); font-size: 8.5pt;">Seamless User Experience (UX) Standards:</strong>
+                <span style="font-size: 8pt; color: var(--text-muted);">
+                    All forms utilize instantaneous feedback loops with custom slide-in toast notifications, mobile touch gestures, escape-key drawer navigation, and non-blocking asynchronous state updates.
+                </span>
+            </div>
+        </div>
+
+        <div class="doc-footer">
+            <span>Wild Card Tennis // Executive Portfolio</span>
+            <span class="page-num">Page 07</span>
+            <span>Confidential & Proprietary</span>
+        </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 8: MEMBERSHIP TIERS & COMMERCIAL MODEL                         -->
+    <!-- =================================================================== -->
+    <div class="page">
+        <div>
+            <div class="doc-header">
+                <div class="brand">
+                    <img src="logo.png" alt="Logo">
+                    <span class="brand-text">WILD CARD TENNIS</span>
+                </div>
+                <div class="doc-topic">Section 07 // Membership & Commercial Model</div>
+            </div>
+
+            <h1 class="page-title">Membership Tiers & VIP Commercial Model</h1>
+            <div class="page-subtitle">Structured Access Tiers, Corporate Sponsorships & Revenue Ecosystem</div>
+
+            <p>
+                Wild Card Tennis operates a multi-tiered commercial model providing accessible public registration while delivering high-value subscriptions and luxury corporate retreat packages.
+            </p>
+
+            <div class="grid-3" style="margin: 10px 0;">
+                <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span class="badge">Tier 01</span>
+                        <h3 style="font-size: 11pt; color: var(--primary-green); margin: 4px 0 2px 0;">Club Associate</h3>
+                        <div style="font-size: 13pt; font-weight: 800; color: var(--primary-green); margin-bottom: 6px;">KSh 0 <span style="font-size: 7.5pt; font-weight: 500; color: #777;">/ month</span></div>
+                        <p style="font-size: 7.8pt; margin-bottom: 8px;">Accessible entry tier for recreational competitors and tournament participants.</p>
+                        <ul class="bullet-list" style="font-size: 7.6pt;">
+                            <li>Public tournament registration</li>
+                            <li>Interactive planning wizard access</li>
+                            <li>Standard racket & ball hire</li>
+                            <li>Locker room web dashboard</li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center; margin-top: 8px;">
+                        <span class="badge" style="width: 100%;">Public Access</span>
+                    </div>
+                </div>
+
+                <div class="card-dark" style="display: flex; flex-direction: column; justify-content: space-between; border: 1.5px solid var(--vibrant-yellow);">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span class="badge badge-yellow">Tier 02 (Featured)</span>
+                        </div>
+                        <h3 style="font-size: 11pt; color: var(--vibrant-yellow); margin: 4px 0 2px 0;">Elite Competitor</h3>
+                        <div style="font-size: 13pt; font-weight: 800; color: #ffffff; margin-bottom: 6px;">KSh 12,900 <span style="font-size: 7.5pt; font-weight: 500; color: #a0c4ab;">/ month</span></div>
+                        <p style="font-size: 7.8pt; color: #d2e4d7; margin-bottom: 8px;">Designed for competitive league players and tournament athletes.</p>
+                        <ul class="bullet-list" style="font-size: 7.6pt;">
+                            <li style="color: #ffffff;">15% off all tournament entry fees</li>
+                            <li style="color: #ffffff;">Priority court booking & floodlights</li>
+                            <li style="color: #ffffff;">Monthly pro masterclass clinic included</li>
+                            <li style="color: #ffffff;">Complimentary racket stringing (2x/mo)</li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center; margin-top: 8px;">
+                        <span class="badge badge-yellow" style="width: 100%;">Most Popular Tier</span>
+                    </div>
+                </div>
+
+                <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span class="badge badge-dark">Tier 03</span>
+                        <h3 style="font-size: 11pt; color: var(--primary-green); margin: 4px 0 2px 0;">VIP Grand Slam</h3>
+                        <div style="font-size: 13pt; font-weight: 800; color: var(--primary-green); margin-bottom: 6px;">KSh 32,500 <span style="font-size: 7.5pt; font-weight: 500; color: #777;">/ month</span></div>
+                        <p style="font-size: 7.8pt; margin-bottom: 8px;">Ultimate luxury access for executives, corporate leaders, and elite players.</p>
+                        <ul class="bullet-list" style="font-size: 7.6pt;">
+                            <li>Unlimited court reservations</li>
+                            <li>Guaranteed tournament main-draw seed</li>
+                            <li>Monthly 1-on-1 private ATP coach session</li>
+                            <li>VIP player lounge & hospitality suite</li>
+                            <li>Official Wild Card branded apparel kit</li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center; margin-top: 8px;">
+                        <span class="badge badge-dark" style="width: 100%;">VIP Executive</span>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-heading">Corporate Partnerships & Sponsorship Packages</h2>
+
+            <div class="card-tinted">
+                <div class="grid-2">
+                    <div>
+                        <strong style="color: var(--primary-green); font-size: 8.5pt;">Corporate Championship Buyouts</strong>
+                        <p style="font-size: 7.8pt; margin-top: 2px;">
+                            Full-day executive tournaments including complete 8-court buyout, live ATP umpiring, branded team apparel, video highlight reels, and executive cocktail gala catering.
+                        </p>
+                    </div>
+                    <div>
+                        <strong style="color: var(--primary-green); font-size: 8.5pt;">Brand Sponsorship Integrations</strong>
+                        <p style="font-size: 7.8pt; margin-top: 2px;">
+                            Court-side windbreak branding, digital scoreboard sponsorships, tournament ball branding, and naming rights for our flagship Grand Slam Warmup Series.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="doc-footer">
+            <span>Wild Card Tennis // Executive Portfolio</span>
+            <span class="page-num">Page 08</span>
+            <span>Confidential & Proprietary</span>
+        </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 9: CASE STUDIES & OPERATIONAL QUALITY ASSURANCE                 -->
+    <!-- =================================================================== -->
+    <div class="page">
+        <div>
+            <div class="doc-header">
+                <div class="brand">
+                    <img src="logo.png" alt="Logo">
+                    <span class="brand-text">WILD CARD TENNIS</span>
+                </div>
+                <div class="doc-topic">Section 08 // Case Studies & Quality Assurance</div>
+            </div>
+
+            <h1 class="page-title">Operational Case Studies & QA Protocols</h1>
+            <div class="page-subtitle">Proven Execution Metrics, Standard Operating Procedures & Safety Standards</div>
+
+            <p>
+                Our reputation is built on repeatable operational excellence. Below are two highlighted event case studies demonstrating our capacity to execute high-stakes championships and corporate experiences.
+            </p>
+
+            <div class="grid-2" style="margin-top: 6px;">
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                        <strong style="color: var(--primary-green); font-size: 9.2pt;">Case Study 01: Silicon Valley Corporate Invitational</strong>
+                        <span class="badge badge-dark">Corporate</span>
+                    </div>
+                    <p style="font-size: 8pt; margin-bottom: 6px;">
+                        <strong>Client Objective:</strong> Host a 32-player executive retreat tournament uniting tech leaders, venture capitalists, and competitive amateurs.
+                    </p>
+                    <ul class="bullet-list" style="font-size: 7.8pt;">
+                        <li><strong>Execution:</strong> 8-court simultaneous round-robin with live web scoreboard updates and bracket seeding.</li>
+                        <li><strong>Hospitality:</strong> Custom hydration lounge, chef-curated organic BBQ buffet, and on-site recovery masseuses.</li>
+                        <li><strong>Outcome:</strong> 100% on-time match starts, zero scheduling disputes, and a 5-year annual rebooking commitment.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                        <strong style="color: var(--primary-green); font-size: 9.2pt;">Case Study 02: East Africa Junior Open Championship</strong>
+                        <span class="badge badge-yellow">Sanctioned</span>
+                    </div>
+                    <p style="font-size: 8pt; margin-bottom: 6px;">
+                        <strong>Client Objective:</strong> Sanction a 5-day 64-player junior ranking tournament attracting collegiate scouts from North America & Europe.
+                    </p>
+                    <ul class="bullet-list" style="font-size: 7.8pt;">
+                        <li><strong>Execution:</strong> Dual-surface logistics (Hard and Red Clay courts), certified ITF chair umpires, and 240fps video recording.</li>
+                        <li><strong>Scouting Suite:</strong> Digital scouting dossiers with player stroke statistics and match recordings delivered to coaches.</li>
+                        <li><strong>Outcome:</strong> 4 athletes secured international collegiate tennis scholarship offers.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 class="section-heading" style="margin-top: 10px;">Standard Operating Procedures (SOP) & Quality Checklist</h2>
+
+            <table class="portfolio-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Phase</th>
+                        <th style="width: 45%;">Operational Checklist & Protocols</th>
+                        <th style="width: 30%;">Quality Standard</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>T-48 Hours (Pre-Event)</strong></td>
+                        <td>Surface laser-leveling, net height calibration (exact 36" center, 42" posts), floodlight lux verification, stringing inventory restocking.</td>
+                        <td>Zero variance on ITF equipment specifications.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>T-0 (Match Day)</strong></td>
+                        <td>Chair umpire briefings, player check-in & digital pass scanning, live medical & physiotherapist standby, ball can rotation tracking.</td>
+                        <td>100% on-schedule first-ball service.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Post-Match Recovery</strong></td>
+                        <td>Court grooming & sweeping, score synchronization, digital trophy ceremony, video package export for participants.</td>
+                        <td>Immediate bracket updates within 3 minutes.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="card-tinted" style="margin-top: 6px;">
+                <strong style="color: var(--primary-green); font-size: 8.5pt;">Medical & Safety Compliance:</strong>
+                <span style="font-size: 8pt; color: var(--text-muted);">
+                    All Wild Card events operate with certified sports physiotherapists on court-side standby, AED cardiac defibrillators on facility premises, and heat-index hydration protocols exceeding international federation guidelines.
+                </span>
+            </div>
+        </div>
+
+        <div class="doc-footer">
+            <span>Wild Card Tennis // Executive Portfolio</span>
+            <span class="page-num">Page 09</span>
+            <span>Confidential & Proprietary</span>
+        </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- PAGE 10: ROADMAP, TECH STACK & CONTACT DIRECTORY                     -->
+    <!-- =================================================================== -->
+    <div class="page">
+        <div>
+            <div class="doc-header">
+                <div class="brand">
+                    <img src="logo.png" alt="Logo">
+                    <span class="brand-text">WILD CARD TENNIS</span>
+                </div>
+                <div class="doc-topic">Section 09 // Strategic Roadmap & Directory</div>
+            </div>
+
+            <h1 class="page-title">Strategic Roadmap & Executive Directory</h1>
+            <div class="page-subtitle">Future Technology Horizons, Platform Architecture & Official Contact Information</div>
+
+            <p>
+                As we advance into 2027 and 2028, Wild Card Tennis is expanding its physical tournament footprint across Africa and the Middle East while pioneering AI biomechanics and IoT smart court integration.
+            </p>
+
+            <div class="grid-3" style="margin: 8px 0 10px 0;">
+                <div class="card">
+                    <span class="badge badge-dark">2026 Q4</span>
+                    <h4 style="font-size: 8.8pt; color: var(--primary-green); margin: 4px 0 2px 0;">Smart Court IoT</h4>
+                    <p style="font-size: 7.6pt; margin: 0;">Installation of multi-camera automated line-calling and ball speed radar tracking on all championship courts.</p>
+                </div>
+                <div class="card">
+                    <span class="badge badge-dark">2027 Q2</span>
+                    <h4 style="font-size: 8.8pt; color: var(--primary-green); margin: 4px 0 2px 0;">AI Video Biomechanics</h4>
+                    <p style="font-size: 7.6pt; margin: 0;">Mobile app integration allowing players to upload stroke videos and receive instantaneous AI swing diagnostics.</p>
+                </div>
+                <div class="card">
+                    <span class="badge badge-yellow">2028 Q1</span>
+                    <h4 style="font-size: 8.8pt; color: var(--primary-green); margin: 4px 0 2px 0;">Pan-African Circuit</h4>
+                    <p style="font-size: 7.6pt; margin: 0;">Expansion of the Wild Card Grand Slam Series across South Africa, Egypt, Mauritius, and UAE.</p>
+                </div>
+            </div>
+
+            <h2 class="section-heading">Platform Technology Stack & Software Standards</h2>
+
+            <div class="card-tinted" style="margin-bottom: 10px;">
+                <div class="grid-2">
+                    <div>
+                        <strong style="color: var(--primary-green); font-size: 8.2pt;">Frontend Architecture:</strong>
+                        <p style="font-size: 7.6pt; margin-top: 1px;">Semantic HTML5, CSS3 Custom Properties (Design System Tokens), Modular ES6 JavaScript, Zero-bloat native rendering.</p>
+                    </div>
+                    <div>
+                        <strong style="color: var(--primary-green); font-size: 8.2pt;">Security & Persistence:</strong>
+                        <p style="font-size: 7.6pt; margin-top: 1px;">Firebase Auth tokenization, structured JSON schema caching, client-side session persistence, and automated PDF engines.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-heading">Official Executive Directory & Dispatch</h2>
+
+            <div class="grid-2">
+                <div class="card-dark">
+                    <h3 style="font-size: 10pt; color: var(--vibrant-yellow); margin-bottom: 6px;">Headquarters & Tournament Pavilion</h3>
+                    <p style="font-size: 8pt; margin-bottom: 4px; color: #ffffff;">
+                        <strong>Wild Card Tennis Operations Centre</strong><br>
+                        Nairobi Club Tennis Pavilion,<br>
+                        Upper Hill Road, Nairobi, Kenya
+                    </p>
+                    <p style="font-size: 7.8pt; color: #d2e4d7; margin: 0;">
+                        Open Monday – Sunday: 06:00 AM – 10:00 PM EAT
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 style="font-size: 10pt; color: var(--primary-green); margin-bottom: 6px;">Direct Director Inquiries</h3>
+                    <div style="margin-bottom: 4px;">
+                        <span style="font-size: 7.5pt; font-weight: 700; color: var(--secondary-green); text-transform: uppercase;">Director Email</span>
+                        <div style="font-size: 8.8pt; font-weight: 700; color: var(--primary-green);">rogoij@gmail.com</div>
+                    </div>
+                    <div style="margin-bottom: 4px;">
+                        <span style="font-size: 7.5pt; font-weight: 700; color: var(--secondary-green); text-transform: uppercase;">Direct Phone / Dispatch</span>
+                        <div style="font-size: 8.8pt; font-weight: 700; color: var(--primary-green);">+254 722 102 870</div>
+                    </div>
+                    <div>
+                        <span style="font-size: 7.5pt; font-weight: 700; color: var(--secondary-green); text-transform: uppercase;">Official Portal</span>
+                        <div style="font-size: 8.2pt; font-weight: 700; color: var(--secondary-green);">www.wildcardtennis.com</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 10px; text-align: center; border-top: 1px solid var(--border-light); padding-top: 8px;">
+                <p style="font-size: 8pt; font-weight: 700; color: var(--primary-green); margin-bottom: 2px;">
+                    © 2026 Wild Card Tennis. All Rights Reserved. Play the Wild Card Way.
+                </p>
+                <p style="font-size: 7.2pt; color: var(--text-muted); margin: 0;">
+                    Document Dossier Release: Version 2026.1 // Verified and Authorized by Tournament Director
+                </p>
+            </div>
+        </div>
+
+        <div class="doc-footer">
+            <span>Wild Card Tennis // Executive Portfolio</span>
+            <span class="page-num">Page 10</span>
+            <span>Official Dossier End</span>
+        </div>
+    </div>
+
+</body>
+</html>
+
