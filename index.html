@@ -79,20 +79,10 @@
         <a href="planner.html" class="cta-button" style="text-align: center; margin-top: auto;">Host Event</a>
     </aside>
 
-    <section id="home" class="hero"
+    <section id="home" class="hero hero--featured"
         style="background: linear-gradient(rgba(13, 43, 26, 0.75), rgba(13, 43, 26, 0.75)), url('banner.jpg'); background-size: cover; background-position: center;">
-        <div class="hero-content">
-            <p
-                style="color: var(--vibrant-yellow); font-weight: 800; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 1rem;">
-                Elite Performance. Premium Experience.</p>
-            <h1>Play the <span>Wild Card</span> Way.</h1>
-            <p>From international tournaments to private coaching clinics, we handle every logistical detail so you can focus on your winning shot.</p>
-            <div style="display: flex; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap;">
-                <a href="events.html" class="cta-button">View Tournaments</a>
-                <a href="planner.html" class="cta-button"
-                    style="background: transparent; color: var(--white); border: 2px solid var(--vibrant-yellow);">Plan Custom Event</a>
-            </div>
-        </div>
+        <!-- Featured tournament hero, rendered from events-data.js -->
+        <div class="hero-feature" id="hero-feature"></div>
     </section>
 
     <section id="events">
@@ -168,6 +158,7 @@
     <script src="events-data.js"></script>
     <script src="script.js"></script>
     <script>
+        document.getElementById('hero-feature').innerHTML = window.renderFeaturedHero(window.WildCardEvents[0]);
         document.getElementById('events-list').innerHTML = window.WildCardEvents.map(ev => window.renderTournamentCard(ev)).join('');
     </script>
     <script type="module" src="auth.js"></script>

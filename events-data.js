@@ -65,11 +65,38 @@ window.renderTournamentCard = function (ev, opts) {
                 <div class="tournament-legs">
                     ${ev.legs.map(l => `<div><span>${l.label}</span><strong>${l.dates}</strong></div>`).join('')}
                 </div>
-                <p class="tournament-venue">📍 ${ev.venue}</p>
+                <p class="tournament-venue"><svg class="pin-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>${ev.venue}</p>
                 <p class="tournament-desc">${ev.description}</p>
                 ${extra}
                 <p class="tournament-deadline">Entry deadline: <strong>${ev.deadline}</strong></p>
                 <a class="cta-button tournament-register" ${link}>Register Now</a>
             </div>
         </article>`;
+};
+
+/**
+ * Builds the homepage cover (hero) feature for the headline tournament.
+ * @param {object} ev - event object from window.WildCardEvents
+ */
+window.renderFeaturedHero = function (ev) {
+    if (!ev) return '';
+    const link = `href="${ev.registrationUrl}" target="_blank" rel="noopener noreferrer"`;
+    return `
+        <div class="hero-feature-text">
+            <p class="hero-eyebrow">Featured Tournament &middot; ${ev.tag}</p>
+            <h1>${ev.title.replace('MT1000', '<span>MT1000</span>')}</h1>
+            <p class="hero-tagline">The first of its kind in East Africa.</p>
+            <div class="hero-legs">
+                ${ev.legs.map(l => `<div><span>${l.label}</span><strong>${l.dates}</strong></div>`).join('')}
+            </div>
+            <p class="hero-venue"><svg class="pin-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>${ev.venue}</p>
+            <div class="hero-actions">
+                <a class="cta-button" ${link}>Register Now</a>
+                <a class="cta-button cta-outline" href="#events">Full Details</a>
+            </div>
+            <p class="hero-deadline">Entry deadline: <strong>${ev.deadline}</strong></p>
+        </div>
+        <a class="hero-poster" ${link} aria-label="Register for ${ev.title} (opens in a new tab)">
+            <img src="${ev.poster}" alt="${ev.posterAlt}" fetchpriority="high">
+        </a>`;
 };
